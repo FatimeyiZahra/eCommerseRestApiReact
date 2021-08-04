@@ -1,0 +1,12 @@
+C:\eCommerseRestApiReact\src\Api\Data\bin\Debug\netcoreapp3.1\Data.deps.json
+C:\eCommerseRestApiReact\src\Api\Data\bin\Debug\netcoreapp3.1\Data.runtimeconfig.json
+C:\eCommerseRestApiReact\src\Api\Data\bin\Debug\netcoreapp3.1\Data.runtimeconfig.dev.json
+C:\eCommerseRestApiReact\src\Api\Data\bin\Debug\netcoreapp3.1\Data.dll
+C:\eCommerseRestApiReact\src\Api\Data\bin\Debug\netcoreapp3.1\Data.pdb
+C:\eCommerseRestApiReact\src\Api\Data\obj\Debug\netcoreapp3.1\Data.csproj.AssemblyReference.cache
+C:\eCommerseRestApiReact\src\Api\Data\obj\Debug\netcoreapp3.1\Data.AssemblyInfoInputs.cache
+C:\eCommerseRestApiReact\src\Api\Data\obj\Debug\netcoreapp3.1\Data.AssemblyInfo.cs
+C:\eCommerseRestApiReact\src\Api\Data\obj\Debug\netcoreapp3.1\Data.csproj.CoreCompileInputs.cache
+C:\eCommerseRestApiReact\src\Api\Data\obj\Debug\netcoreapp3.1\Data.dll
+C:\eCommerseRestApiReact\src\Api\Data\obj\Debug\netcoreapp3.1\Data.pdb
+C:\eCommerseRestApiReact\src\Api\Data\obj\Debug\netcoreapp3.1\Data.genruntimeconfig.cache
