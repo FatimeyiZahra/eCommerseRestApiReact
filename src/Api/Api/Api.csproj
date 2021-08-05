@@ -27,7 +27,6 @@
   </ItemGroup>
 
   <ItemGroup>
-    <Folder Include="Controllers\Home\" />
     <Folder Include="wwwroot\img\" />
   </ItemGroup>
 

@@ -103,7 +103,6 @@ namespace Data.Repositories.Implementations
                                 .Where(p => p.Stocks.Any(s => s.Quantity > 0))
                                 .FirstOrDefaultAsync();
         }
-
         public async Task<IEnumerable<Product>> GetProductsByCategoryId(int categoryId, int page)
         {
             return await _context.Products

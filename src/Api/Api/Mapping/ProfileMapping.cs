@@ -10,7 +10,7 @@ namespace Api.Mapping
 {
     public class ProfileMapping : Profile
     {
-        private static string BaseUrl = "https://localhost:44394/img/";
+        private static string BaseUrl = "https://localhost:44368/img/";
         public ProfileMapping()
         {
             CreateMap<Category, CategoryResource>();
