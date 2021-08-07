@@ -1,0 +1,13 @@
+:root {
+    font-size: 16px;
+  }
+  
+  * {
+    box-sizing: border-box;
+    color: var(--base-color);
+  }
+  
+  a {
+    color: var(--accent-color);
+  }
+  
