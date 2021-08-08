@@ -8,6 +8,7 @@ import CheckOutPage from "../pages/checkOut/CheckOutPage";
 import NoMatch from "../pages/404/NoMatch";
 import { BrowserRouter, Switch, Route } from "react-router-dom";
 import Category from "./section/category/Category";
+import ComingSoon from "./section/cooming/ComingSoon";
 
 const App = () => {
   return (
@@ -26,7 +27,9 @@ const App = () => {
               <Route path="/products">
                 <ProductsPage />
               </Route>
-
+              <Route path="/coming-soon">
+                <ComingSoon />
+              </Route>
               <Route path="/cart">
                 <CartPage />
               </Route>

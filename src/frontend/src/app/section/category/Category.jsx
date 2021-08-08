@@ -6,16 +6,19 @@ const Category = () => {
 
   useEffect(() => {
     axios
-      .get("https://localhost:44368/v1/homepage/sort-products")
+      .get("https://localhost:44368/v1/homepage/categories")
       .then((res) => setCategory(res.data));
   }, []);
   return (
     <>
-      <ul class="list-group">
-          {categories && categories.map((cat) =>
-       <li class="list-group-item">
-           {cat.name}</li>)}
-       </ul>
+      <ul className="list-group">
+        {categories &&
+          categories.map((cat) => (
+            <li key={cat.id} className="list-group-item">
+              {cat.name}
+            </li>
+          ))}
+      </ul>
     </>
   );
 };

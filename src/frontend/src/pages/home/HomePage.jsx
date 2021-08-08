@@ -1,5 +1,4 @@
 import React from "react";
-import ComingSoon from "../../app/section/cooming/ComingSoon";
 import Seo from "../../app/seo/Seo";
 import ProductsPage from "../products/ProductsPage";
 
@@ -9,7 +8,6 @@ const HomePage = () => {
     <>
      <Seo title='Welcome to the machine' />
      <ProductsPage/>
-     <ComingSoon/>
     </>
   );
 };

@@ -2,33 +2,48 @@ import React, { useState, useEffect } from "react";
 import Seo from "../../app/seo/Seo";
 import axios from "axios";
 import "./style.css";
+import ProductItem from "./ProductItem";
 
 const ProductsPage = () => {
   const [products, setProduct] = useState([]);
+  const [cooming, setCooming] = useState([]);
+  const [freeProducts, setFreeProduct] = useState([]);
   useEffect(() => {
     axios
-      .get("https://localhost:44368/v1/homepage/sort-products")
+      .get("https://localhost:44368/v1/homepage/all-products")
       .then((res) => setProduct(res.data));
+    axios
+      .get("https://localhost:44368/v1/homepage/free-product")
+      .then((res) => setFreeProduct(res.data));
+    axios
+      .get("https://localhost:44368/v1/homepage/coming-product")
+      .then((res) => setCooming(res.data));
   }, []);
 
   return (
     <>
-      <div id="product">
-        <Seo title="Products" />
-        {products &&
-          products.map((prd) => (
-            <div className="col-3 card" key={prd._id}>
-              <img src={prd.photos[0]} alt="" />
-              <div className="content">
-              <h3>{prd.name}</h3>
-                <p>{prd.category.name}</p>
-                <span>${prd.price}</span>
-                <button>add to cart</button>
-                {/* <button onClick={()=> addCart(prd._id)}>Add to cart</button> */}
-              </div>
-            </div>
-          ))}
-      </div>
+      <Seo title="Products" />
+      <>
+        <h1>all products</h1>
+        <div className="row">
+          {products &&
+            products.map((prd) => <ProductItem key={prd.id} {...prd} />)}
+        </div>
+      </>
+      <>
+        <h1>Free product</h1>
+        <div className="row">
+          {freeProducts &&
+            freeProducts.map((prd) => <ProductItem key={prd.id} {...prd} />)}
+        </div>
+      </>
+      <>
+        <h1>cooming soon products</h1>
+        <div className="row">
+          {cooming &&
+            cooming.map((soon) => <ProductItem key={soon.id} {...soon} />)}
+        </div>
+      </>
     </>
   );
 };

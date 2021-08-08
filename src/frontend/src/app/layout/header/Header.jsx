@@ -1,7 +1,7 @@
 import React from "react";
 import { Link } from "react-router-dom";
 import "./styles.css";
-import { BrowserRouter} from 'react-router-dom';
+// import { BrowserRouter} from 'react-router-dom';
 const Header = () => {
   return (
     <div className="__dml header">
@@ -21,6 +21,9 @@ const Header = () => {
 
           <li>
             <Link to="/checkout">Checkout</Link>
+          </li>
+          <li>
+            <Link to="/coming-soon">cooming soon</Link>
           </li>
         </ul>
       {/* </BrowserRouter> */}

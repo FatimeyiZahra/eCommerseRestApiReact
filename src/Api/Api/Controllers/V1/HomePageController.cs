@@ -60,24 +60,24 @@ namespace Api.Controllers.V1
 
         [Route("all-products")]
         [HttpGet]
-        public async Task<IActionResult> GetAllProducts()
-        {
-            var products = await _unitOfWork.Product.GetAllProducts();
-            var productResources = _mapper.Map<IEnumerable<Product>, IEnumerable<ProductResource>>(products);
-
-            return Ok(productResources);
-
-        }
-
-        [Route("sort-products")]
-        [HttpGet]
         public async Task<IActionResult> GetAllProducts([FromQuery] string sort)
         {
-            var products = await _unitOfWork.Product.GetAllProductsBySort(sort);
+            var products = await _unitOfWork.Product.GetAllProducts(sort);
             var productResources = _mapper.Map<IEnumerable<Product>, IEnumerable<ProductResource>>(products);
+
             return Ok(productResources);
 
         }
+
+        //[Route("sort-products")]
+        //[HttpGet]
+        //public async Task<IActionResult> GetAllProducts([FromQuery] string sort)
+        //{
+        //    var products = await _unitOfWork.Product.GetAllProductsBySort(sort);
+        //    var productResources = _mapper.Map<IEnumerable<Product>, IEnumerable<ProductResource>>(products);
+        //    return Ok(productResources);
+
+        //}
          //get products by category
         [Route("products")]
         [HttpGet]
