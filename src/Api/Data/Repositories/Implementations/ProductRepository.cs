@@ -15,19 +15,62 @@ namespace Data.Repositories.Implementations
         public ProductRepository(ApplicationDbContext context) : base(context) { }
         private ApplicationDbContext _context => Context as ApplicationDbContext;
 
-        public async Task<IEnumerable<Product>> GetAllProducts(string sort)
+        public async Task<IEnumerable<Product>> GetAllProducts(string sort, int? min, int? max)
         {
-            if (!string.IsNullOrWhiteSpace(sort))
+            if (min != null && max != null && !string.IsNullOrWhiteSpace(sort))
             {
                 switch (sort)
                 {
                     case "priceAsc":
-                        return await _context.Products.OrderBy(p => p.Price).Include(p => p.Category).Include(p => p.Stocks)
+                        return await _context.Products
+                                             .OrderBy(p => p.Price)
+                                             .Where(p => p.Price >= min && p.Price <= max)
+                                             .Include(p => p.Category)
+                                             .Include(p => p.Stocks)
+                                             .Include(p => p.Photos)
+                                             .Where(p => p.Stocks.Any(s => s.Quantity > 0))
+                                             .Include(p => p.Discounts).ThenInclude(p => p.Discount)
+                                             .IncludeFilter(p => p.Discounts.FirstOrDefault(d => d.Discount.Status && d.Discount.StartDate <= DateTime.Now && d.Discount.EndDate >= DateTime.Now))
+                                             .ToListAsync();
+
+                    //break;
+                    case "priceDesc":
+                        return await _context.Products
+                                             .OrderByDescending(p => p.Price)
+                                             .Where(p => p.Price >= min && p.Price <= max)
+                                             .Include(p => p.Category)
+                                             .Include(p => p.Stocks)
                                              .Include(p => p.Photos)
                                              .Where(p => p.Stocks.Any(s => s.Quantity > 0))
                                              .Include(p => p.Discounts).ThenInclude(p => p.Discount)
                                              .IncludeFilter(p => p.Discounts.FirstOrDefault(d => d.Discount.Status && d.Discount.StartDate <= DateTime.Now && d.Discount.EndDate >= DateTime.Now))
                                             .ToListAsync();
+                    //break;
+                    default:
+                        return await _context.Products.OrderBy(p => p.Name).Include(p => p.Category).Include(p => p.Stocks)
+                                             .Include(p => p.Photos)
+                                             .Where(p => p.Stocks.Any(s => s.Quantity > 0))
+                                             .Include(p => p.Discounts).ThenInclude(p => p.Discount)
+                                             .IncludeFilter(p => p.Discounts.FirstOrDefault(d => d.Discount.Status && d.Discount.StartDate <= DateTime.Now && d.Discount.EndDate >= DateTime.Now))
+                                            .ToListAsync();
+                        //break;
+                }
+            }
+            if (min == null && max == null && !string.IsNullOrWhiteSpace(sort))
+            {
+                switch (sort)
+                {
+                    case "priceAsc":
+                        return await _context.Products
+                                             .OrderBy(p => p.Price)
+                                             //.Where(p => p.Price >= min && p.Price <= max)
+                                             .Include(p => p.Category)
+                                             .Include(p => p.Stocks)
+                                             .Include(p => p.Photos)
+                                             .Where(p => p.Stocks.Any(s => s.Quantity > 0))
+                                             .Include(p => p.Discounts).ThenInclude(p => p.Discount)
+                                             .IncludeFilter(p => p.Discounts.FirstOrDefault(d => d.Discount.Status && d.Discount.StartDate <= DateTime.Now && d.Discount.EndDate >= DateTime.Now))
+                                             .ToListAsync();
 
                     //break;
                     case "priceDesc":
@@ -47,6 +90,19 @@ namespace Data.Repositories.Implementations
                                             .ToListAsync();
                         //break;
                 }
+            }
+
+            if (min != null && max != null )
+            {
+                return await _context.Products
+                                              .Where(p => p.Price >= min && p.Price <= max)
+                                              .Include(p => p.Category)
+                                              .Include(p => p.Stocks)
+                                              .Include(p => p.Photos)
+                                              .Where(p => p.Stocks.Any(s => s.Quantity > 0))
+                                              .Include(p => p.Discounts).ThenInclude(p => p.Discount)
+                                              .IncludeFilter(p => p.Discounts.FirstOrDefault(d => d.Discount.Status && d.Discount.StartDate <= DateTime.Now && d.Discount.EndDate >= DateTime.Now))
+                                              .ToListAsync();
             }
 
             return await _context.Products.Include(p => p.Category)

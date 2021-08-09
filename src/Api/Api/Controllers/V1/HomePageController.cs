@@ -60,9 +60,11 @@ namespace Api.Controllers.V1
 
         [Route("all-products")]
         [HttpGet]
-        public async Task<IActionResult> GetAllProducts([FromQuery] string sort)
+        public async Task<IActionResult> GetAllProducts([FromQuery] string sort,
+                                                             [FromQuery] int? min,
+                                                             [FromQuery] int? max)
         {
-            var products = await _unitOfWork.Product.GetAllProducts(sort);
+            var products = await _unitOfWork.Product.GetAllProducts(sort,min,max);
             var productResources = _mapper.Map<IEnumerable<Product>, IEnumerable<ProductResource>>(products);
 
             return Ok(productResources);
