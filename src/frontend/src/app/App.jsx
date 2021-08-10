@@ -12,40 +12,41 @@ import ComingSoon from "./section/cooming/ComingSoon";
 
 const App = () => {
   return (
-    <BrowserRouter>
-      <Layout>
-        <div className="row">
-          <div className="col-2">
-            <Category />
+   
+      <BrowserRouter>
+        <Layout>
+          <div className="row">
+            <div className="col-2">
+              <Category />
+            </div>
+            <div className="col-10">
+              <Switch>
+                <Route exact path="/">
+                  <HomePage />
+                </Route>
+
+                <Route path="/products">
+                  <ProductsPage />
+                </Route>
+                <Route path="/coming-soon">
+                  <ComingSoon />
+                </Route>
+                <Route path="/cart">
+                  <CartPage />
+                </Route>
+
+                <Route path="/checkout">
+                  <CheckOutPage />
+                </Route>
+
+                <Route path="*">
+                  <NoMatch />
+                </Route>
+              </Switch>
+            </div>
           </div>
-          <div className="col-10">
-            <Switch>
-              <Route exact path="/">
-                <HomePage />
-              </Route>
-
-              <Route path="/products">
-                <ProductsPage />
-              </Route>
-              <Route path="/coming-soon">
-                <ComingSoon />
-              </Route>
-              <Route path="/cart">
-                <CartPage />
-              </Route>
-
-              <Route path="/checkout">
-                <CheckOutPage />
-              </Route>
-
-              <Route path="*">
-                <NoMatch />
-              </Route>
-            </Switch>
-          </div>
-        </div>
-      </Layout>
-    </BrowserRouter>
+        </Layout>
+      </BrowserRouter>
   );
 };
 

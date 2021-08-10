@@ -41,7 +41,7 @@ const ProductsPage = () => {
         <h1>cooming soon products</h1>
         <div className="row">
           {cooming &&
-            cooming.map((soon) => <ProductItem key={soon.id} {...soon} />)}
+            cooming.map((prd) => <ProductItem key={prd.id} {...prd} />)}
         </div>
       </>
     </>

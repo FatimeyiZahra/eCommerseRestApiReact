@@ -1,5 +1,6 @@
 import React from "react";
-import { If, Then, Else, Switch, Case, } from "react-if";
+// import { If, Then, Else, Switch, Case } from "react-if";
+import { addToCart } from "../../modules/cart";
 
 const ProductItem = ({
   id,
@@ -28,17 +29,28 @@ const ProductItem = ({
             </Else>
           </If> */}
           {discount != null ? (
-            <span>
-              ${price} ...{discount.percentage}% endirimle indi- $
-              {price - (price * discount.percentage) / 100}
-            </span>
-            
+            <div>
+              <span className="text-muted"> <del>{price}</del></span><br/>
+              <span className="text-danger">{discount.percentage}%</span><br/>
+              <span className="text-success"> {price - (price * discount.percentage) / 100}</span>
+            </div>
           ) : (
             <span>${price}</span>
           )}
 
-          <button>add to cart</button>
-          {/* <button onClick={()=> addCart(prd._id)}>Add to cart</button> */}
+          {/* <button>add to cart</button> */}
+          <button
+            className="add-to-cart"
+            onClick={() =>
+              addToCart({
+                id,
+                name,
+                price,
+              })
+            }
+          >
+            add to cart
+          </button>
         </div>
       </div>
     </>
