@@ -1,6 +1,7 @@
 import React from "react";
-// import { If, Then, Else, Switch, Case } from "react-if";
 import { addToCart } from "../../modules/cart";
+import "owl.carousel/dist/assets/owl.carousel.css";
+import "owl.carousel/dist/assets/owl.theme.default.css";
 
 const ProductItem = ({
   id,
@@ -13,33 +14,37 @@ const ProductItem = ({
 }) => {
   return (
     <>
-      <div className="col-lg-2 card" key={id}>
-        <img src={photos[0]} alt="" />
-        <div className="content">
-          <h5>{name}</h5>
-          <p>{category.name}</p>
-          {/* <If condition={discount != null}>
-            <Then>
-              <span className="text-muted"> {price}</span>
-              <span>{discount.percentage}%endirim</span>
-              <span className="ok"> {price - (price * discount.percentage) / 100}</span>
-            </Then>
-            <Else>
-              <span>${price}</span>
-            </Else>
-          </If> */}
-          {discount != null ? (
-            <div>
-              <span className="text-muted"> <del>{price}</del></span><br/>
-              <span className="text-danger">{discount.percentage}%</span><br/>
-              <span className="text-success"> {price - (price * discount.percentage) / 100}</span>
+      <div className="item">
+        <div className="imagebox style4">
+          <div className="box-image">
+            <a href="!#" title="">
+              <img src={photos[0]} alt="" />
+            </a>
+          </div>
+          <div className="box-content">
+            <div className="cat-name">
+              <a href="!#" title="">
+                {category.name}
+              </a>
             </div>
-          ) : (
-            <span>${price}</span>
-          )}
-
-          {/* <button>add to cart</button> */}
-          <button
+            <div className="product-name">
+              <a href="!#" title="">
+                {name}
+              </a>
+            </div>
+            <div className="price">
+              {discount != null ? (
+                <>
+                  <span className="sale">
+                    {price - (price * discount.percentage) / 100}
+                  </span>
+                  <span className="regular">{price}</span>
+                </>
+              ) : (
+                <span className="current">{price}</span>
+              )}
+            </div>
+            <button
             className="add-to-cart"
             onClick={() =>
               addToCart({
@@ -51,6 +56,7 @@ const ProductItem = ({
           >
             add to cart
           </button>
+          </div>
         </div>
       </div>
     </>

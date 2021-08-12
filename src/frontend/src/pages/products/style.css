@@ -1,3 +1,80 @@
+/* Imagebox Style4 */
+body{
+    font-family: 'Open Sans', sans-serif;
+}
+.display-grid{
+    display: grid;
+}
+.imagebox.style4 {
+	padding: 29px 16px 20px;
+    text-align: left;
+    border: 2px solid #e5e5e5;
+    border-radius: 8px;
+    min-height: auto;
+	transition:all 0.3s ease-in-out;
+}
+img {
+    max-width: 100%;
+    height: auto;border: 0;
+}
+
+.imagebox:hover.style4 {
+	border:2px solid #f28b00;
+}
+
+.imagebox.style4 .box-image {
+	height: 110px;
+    line-height: 108px;
+    text-align: center;
+    margin-bottom: 4px;
+}
+
+.imagebox .box-image a {
+    position: relative;
+    display: block;
+}
+
+.imagebox.style4 .box-content .cat-name a {
+	font-size:12px;
+	margin-left:2px;
+    text-decoration: none;
+    font-family: 'Open Sans', sans-serif;
+    font-size: 12px;
+    margin-left: 2px;
+}
+
+.imagebox.style4 .box-content .product-name {
+	min-height:66px;
+	margin-top:4px;
+	margin-left:2px;
+}
+.imagebox.style4 .box-content .product-name a {
+    font-family: 'Open Sans', sans-serif;
+    color: #484848;
+    line-height: 22px;
+    text-decoration: none;
+	font-size:13px;
+}
+a {
+    font-family: 'Open Sans', sans-serif;
+    text-decoration: none;
+    transition: all 0.3s ease-in-out;
+}
+
+.regular {
+    color: #c5c5c5;
+    font-size: 14px;
+    text-decoration: line-through;
+}
+
+.imagebox.style4 .box-content .price .sale {
+    font-family: 'Open Sans', sans-serif;
+	font-size: 22px;
+	margin-right:10px;
+    color: #f28b00;
+    font-weight: 500;
+}
+
 .card{
     /* min-width: 300px;
     min-height: 400px; */

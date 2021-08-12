@@ -15,11 +15,9 @@ const App = () => {
    
       <BrowserRouter>
         <Layout>
-          <div className="row">
-            <div className="col-2">
+            {/* <div className="col-2">
               <Category />
-            </div>
-            <div className="col-10">
+            </div> */}
               <Switch>
                 <Route exact path="/">
                   <HomePage />
@@ -43,8 +41,6 @@ const App = () => {
                   <NoMatch />
                 </Route>
               </Switch>
-            </div>
-          </div>
         </Layout>
       </BrowserRouter>
   );
