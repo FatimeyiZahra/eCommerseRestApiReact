@@ -67,13 +67,7 @@ a {
     text-decoration: line-through;
 }
 
-.imagebox.style4 .box-content .price .sale {
-    font-family: 'Open Sans', sans-serif;
-	font-size: 22px;
-	margin-right:10px;
-    color: #f28b00;
-    font-weight: 500;
-}
+
 
 .card{
     /* min-width: 300px;
@@ -129,4 +123,218 @@ a {
     text-transform: uppercase;
     letter-spacing: 2px;
     margin: 15px 0;
+}
+
+
+.product-box:hover {
+	overflow:visible;
+}
+
+.product-box .imagebox {
+	text-align:center;
+	padding:8px 16px;
+	border:2px solid transparent;
+	position:relative;
+	/* z-index:99; */
+	min-height:435px;
+	overflow:visible;
+}
+
+.product-box:hover .imagebox {
+	top:0;
+	left:0;
+	width:100%;
+}
+
+/* Imagebox */
+.imagebox .box-image {
+	margin-bottom:5px;
+	line-height:209px;
+	height:209px;
+}
+
+.imagebox .box-image a {
+    text-decoration: none;
+	position:relative;
+	display:block;
+}
+
+.imagebox span.item-new,
+.imagebox span.item-sale {
+	position:absolute;
+	top:24px;
+	right:10px;
+	height:45px;
+	width:45px;
+	line-height:44px;
+	color:#fff;
+	font-size:12px;
+	font-weight:600;
+	text-align:center;
+	background-color:#f28b00;
+	border-radius:50%;
+	z-index:10;
+}
+
+.imagebox span.item-sale {
+	background-color:#f92400;
+	left:10px;
+	right:auto;
+}
+
+.imagebox .box-content .cat-name a {
+    text-decoration: none;
+	color:#919191;
+	position:relative;
+	display:block;
+}
+
+.imagebox .box-content .cat-name a:before,
+.imagebox .box-content .cat-name a:after {
+	content:'';
+	position:absolute;
+	height:1px;
+	width:70px;
+	background-color:#e5e5e5;
+	top:50%;
+	left:0;
+}
+
+.imagebox .box-content .cat-name a:after {
+	right:-4px;
+	left:auto;
+}
+
+.imagebox .box-content .product-name {
+	min-height:63px;
+	margin-top:6px;
+}
+
+.imagebox .box-content .product-name a {
+    text-decoration: none;
+	color:#484848;
+	font-size:16px;
+	line-height:22px;
+}
+
+.imagebox .box-content .product-name a:hover {
+	color:#f28b00;
+}
+
+.imagebox .box-content .price .sale {
+    font-family: 'Open Sans', sans-serif;
+	font-size: 22px;
+	margin-right:10px;
+    color: #f28b00;
+    font-weight: 500;
+	margin-right:14px;
+}
+
+.imagebox .box-bottom {
+	opacity:0;
+	position:absolute;
+	width:100%;
+	left:0;
+	transform:translateY(-20%);
+}
+
+
+
+.imagebox .box-bottom .btn-add-cart a {
+    text-decoration: none;
+	display:inline-block;
+	background-color:#f92400;
+	color:#fff;
+	font-size:14px;
+	height:45px;
+	line-height:45px;
+	border-radius:30px;
+	text-align:center;
+	position:relative;
+	overflow:hidden;
+	z-index:3;
+	width: 90%;
+	
+
+}
+
+.imagebox .box-bottom .btn-add-cart a:before {
+	content:'';
+	position:absolute;
+	width:100%;
+	height:100%;
+	top:0;
+	left:0;
+	z-index:-1;
+	background:#f28b00;
+	-webkit-transform:scaleX(0);
+	transform:scaleX(0);
+	-webkit-transform-origin:0 50%;
+	transform-origin:0 50%;
+	-webkit-transition-property:transform;
+	transition-property:transform;
+	-webkit-transition-duration:0.4s;
+	transition-duration:0.4s;
+	-webkit-transition-timing-function:ease-out;
+	transition-timing-function:ease-out;
+}
+
+.imagebox .box-bottom .btn-add-cart a:hover:before {
+	-webkit-transform:scaleX(1);
+	transform:scaleX(1);
+	-webkit-transition-timing-function:cubic-bezier(0.52, 1.64, 0.37, 0.66);
+	transition-timing-function:cubic-bezier(0.52, 1.64, 0.37, 0.66);
+}
+
+.imagebox .box-bottom .btn-add-cart a img {
+	padding-right:15px;
+}
+
+.imagebox .box-bottom .compare-wishlist {
+	margin-top:10px;
+	margin-bottom: 10px;
+	text-align: center;
+}
+
+.imagebox .box-bottom .compare-wishlist a img {
+	padding-right:10px;
+}
+
+.imagebox .box-bottom .compare-wishlist a {
+    text-decoration: none;
+	font-size:12px;
+	font-weight:600;
+	color:#919191;
+}
+
+.imagebox .box-bottom .compare-wishlist a:hover {
+	color:#f28b00;
+}
+
+.imagebox .box-bottom .compare-wishlist a.compare {
+	margin-right:18px;
+}
+
+.product-box:hover .imagebox {
+	border:2px solid #e5e5e5;
+	border-radius:8px;
+	z-index:999;
+	background-color:#fff;
+
+}
+.product-box:hover .imagebox .box-bottom {
+	opacity:1;
+	display:block;
+	transform:translateY(0%);
+	-webkit-transition:all 0.3s ease-in-out;
+	-moz-transition:all 0.3s ease-in-out;
+	-ms-transition:all 0.3s ease-in-out;
+	-o-transition:all 0.3s ease-in-out;
+	transition:all 0.3s ease-in-out;
+	width:auto;
+	margin:10px 0 0;
+	left:0;
+	right:0;
+	position:relative;
+	height:auto;
 }

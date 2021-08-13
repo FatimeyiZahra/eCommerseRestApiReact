@@ -55,37 +55,83 @@ const ProductsPage = () => {
       <Seo title="Products" />
       <>
         <h1>all products</h1>
-        <div className="row">
-          <div className="col-12">
-            <ul className="d-flex flex-wrap">
-              {products &&
-                products.map((prd) => (
-                  <>
-                    <div className="col-lg-2 card" key={prd.id}>
-                      <img src={prd.photos[0]} alt="" />
-                      <div className="content">
-                        <h5>{prd.name}</h5>
-                        <p>{prd.category.name}</p>
-                        {/* {if(IsFree==true)} */}
-                        <span>${prd.price}</span>
-                        <button
-                          className="add-to-cart"
-                          onClick={() =>
-                            addToCart({
-                              prd,
-                            })
-                          }
-                        >
-                          add to cart
-                        </button>
-                        {/* <button onClick={()=> addCart(prd._id)}>Add to cart</button> */}
+        <section className="flat-row flat-imagebox">
+          <div className="container">
+            <div className="box-product">
+              <div className="row">
+                {products &&
+                  products.map((prd) => (
+                    <div className="col-lg-3 col-sm-6">
+                      <div className="product-box">
+                        <div className="imagebox">
+                          <span className="item-new">NEW</span>
+                          <div className="box-image owl-carousel-1">
+                            <a href="!#" title="">
+                              <img src={prd.photos[0]} alt="" />
+                            </a>
+                          </div>
+                          <div className="box-content">
+                            <div className="cat-name">
+                              <a href="!#" title="">
+                                {prd.category.name}
+                              </a>
+                            </div>
+                            <div className="product-name">
+                              <a href="!#" title="">
+                                {prd.name}
+                              </a>
+                            </div>
+                            <div className="price">
+                              {prd.discount != null ? (
+                                <>
+                                  <span className="sale">
+                                    {" "}
+                                    $
+                                    {prd.price -
+                                      (prd.price * prd.discount.percentage) /
+                                        100}
+                                  </span>
+                                  <span className="regular">${prd.price}</span>
+                                </>
+                              ) : (
+                                <span className="sale">${prd.price}</span>
+                              )}
+                            </div>
+                          </div>
+                          <div className="box-bottom">
+                            <div className="btn-add-cart">
+                              <a
+                                
+                                title=""
+                                onClick={() =>
+                                  addToCart({
+                                    prd,
+                                  })
+                                }
+                              >
+                                <img src="images/icons/add-cart.png" alt="" />
+                                Add to Cart
+                              </a>
+                            </div>
+                            <div className="compare-wishlist">
+                              <a href="!#" class="compare" title="">
+                                <img src="images/icons/compare.png" alt="" />
+                                Compare
+                              </a>
+                              <a href="!#" class="wishlist" title="">
+                                <img src="images/icons/wishlist.png" alt="" />
+                                Wishlist
+                              </a>
+                            </div>
+                          </div>
+                        </div>
                       </div>
                     </div>
-                  </>
-                ))}
-            </ul>
+                  ))}
+              </div>
+            </div>
           </div>
-        </div>
+        </section>
       </>
       <>
         <h1>Free product</h1>

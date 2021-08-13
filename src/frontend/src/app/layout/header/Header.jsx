@@ -140,7 +140,7 @@ const Header = () => {
                       <input
                         type="text"
                         name="search"
-                        autocomplete="off"
+                        autoComplete="off"
                         placeholder="Search what you looking for ?"
                       />
                       <span className="btn-search">
