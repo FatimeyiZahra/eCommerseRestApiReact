@@ -11,6 +11,8 @@ const ProductItem = ({
   category,
   discount,
   percentage,
+  isComing,
+  isNew,
 }) => {
   return (
     <>
@@ -44,18 +46,33 @@ const ProductItem = ({
                 <span className="current">{price}</span>
               )}
             </div>
+            {discount != null ? (
+              <span className="item-sale">-{discount.percentage}%</span>
+            ) : (
+              <span></span>
+            )}
+            {isNew === true ? (
+              <span className="item-new">NEW</span>
+            ) : (
+              <span></span>
+            )}
+            {isComing === true ? (
+              <span className="item-soon">SOON</span>
+            ) : (
+              <span></span>
+            )}
             <button
-            className="add-to-cart"
-            onClick={() =>
-              addToCart({
-                id,
-                name,
-                price,
-              })
-            }
-          >
-            add to cart
-          </button>
+              className="add-to-cart"
+              onClick={() =>
+                addToCart({
+                  id,
+                  name,
+                  price,
+                })
+              }
+            >
+              add to cart
+            </button>
           </div>
         </div>
       </div>

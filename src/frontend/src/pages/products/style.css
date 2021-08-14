@@ -160,7 +160,8 @@ a {
 }
 
 .imagebox span.item-new,
-.imagebox span.item-sale {
+.imagebox span.item-sale,
+.imagebox span.item-soon {
 	position:absolute;
 	top:24px;
 	right:10px;
@@ -180,6 +181,9 @@ a {
 	background-color:#f92400;
 	left:10px;
 	right:auto;
+}
+.imagebox span.item-soon{
+	background-color: #62ef4f;
 }
 
 .imagebox .box-content .cat-name a {

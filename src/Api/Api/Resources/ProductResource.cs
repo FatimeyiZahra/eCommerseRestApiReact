@@ -11,6 +11,8 @@ namespace Api.Resources
         public string Name { get; set; }
         public string Desc { get; set; }
         public decimal Price { get; set; }
+        public bool IsComing { get; set; }
+        public bool IsNew { get; set; }
         public DateTime AddedDate { get; set; }
         public DiscountResource Discount { get; set; }
         public string[] Photos { get; set; }

@@ -105,7 +105,9 @@ namespace Data.Repositories.Implementations
                                               .ToListAsync();
             }
 
-            return await _context.Products.Include(p => p.Category)
+            return await _context.Products
+                                             .OrderByDescending(p => p.Id)
+                                             .Include(p => p.Category)
                                              .Include(p => p.Stocks)
                                              .Include(p => p.Photos)
                                              .Where(p => p.Stocks.Any(s => s.Quantity > 0))

@@ -13,7 +13,7 @@ namespace Data.Entities
         public bool IsFree { get; set; }
         public bool IsComing { get; set; }
 
-
+        public bool IsNew { get; set; }
         public Category Category { get; set; }
         public ICollection<ProductPhoto> Photos { get; set; }
         public ICollection<DiscountProduct> Discounts { get; set; }

@@ -9,5 +9,7 @@ namespace Api.Resources
     {
         public string Name { get; set; }
         public float Percentage { get; set; }
+        public DateTime StartDate { get; set; }
+        public DateTime EndDate { get; set; }
     }
 }
