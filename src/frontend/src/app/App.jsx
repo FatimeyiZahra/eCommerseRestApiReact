@@ -7,7 +7,6 @@ import CartPage from "../pages/cart/CartPage";
 import CheckOutPage from "../pages/checkOut/CheckOutPage";
 import NoMatch from "../pages/404/NoMatch";
 import { BrowserRouter, Switch, Route } from "react-router-dom";
-import Category from "./section/category/Category";
 import ComingSoon from "./section/cooming/ComingSoon";
 
 const App = () => {

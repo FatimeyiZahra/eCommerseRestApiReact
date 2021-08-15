@@ -4,7 +4,7 @@ import Seo from "../../app/seo/Seo";
 import ProductsPage from "../products/ProductsPage";
 import "../products/style.css"
 import OwlCarousel from "react-owl-carousel";
-import ProductItem from "../products/ProductItem";
+import ProductItemCarousel from "../products/ProductItemCarousel";
 const options = {
   margin: 30,
   responsiveClass: true,
@@ -54,7 +54,7 @@ const HomePage = () => {
               <OwlCarousel className="slider-items owl-carousel" {...options}>
                 {freeProducts &&
                   freeProducts.map((prd) => (
-                    <ProductItem key={prd.id} {...prd} />
+                    <ProductItemCarousel key={prd.id} {...prd} />
                   ))}
               </OwlCarousel>
             </div>
@@ -68,7 +68,9 @@ const HomePage = () => {
             <div className="col-12">
               <OwlCarousel className="slider-items owl-carousel" {...options}>
                 {cooming &&
-                  cooming.map((prd) => <ProductItem key={prd.id} {...prd} />)}
+                  cooming.map((prd) => (
+                  <ProductItemCarousel key={prd.id} {...prd} />
+                  ))}
               </OwlCarousel>
             </div>
           </div>

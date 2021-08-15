@@ -10,16 +10,17 @@ const Category = () => {
       .then((res) => setCategory(res.data));
   }, []);
   return (
-    <>
+    <div className="category">
+      <h3>Categories</h3>
       <ul className="list-group">
         {categories &&
           categories.map((cat) => (
-            <li key={cat.id} className="list-group-item">
-              {cat.name}
+            <li key={cat.id} className="list-item">
+             <span>{cat.name}</span> 
             </li>
           ))}
       </ul>
-    </>
+    </div>
   );
 };
 

@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from "react";
 import axios from "axios";
-import css from "../../../pages/products/style.css";
+import  "../../../pages/products/style.css";
 import { addToCart } from "../../../modules/cart";
 const ComingSoon = () => {
   const [cooming, setCooming] = useState([]);
@@ -75,7 +75,7 @@ const ComingSoon = () => {
                           </div>
                           <div className="box-bottom">
                             <div className="btn-add-cart">
-                              <a
+                              <a href="!"
                                 title=""
                                 onClick={() =>
                                   addToCart({

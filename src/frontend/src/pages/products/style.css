@@ -342,3 +342,33 @@ a {
 	position:relative;
 	height:auto;
 }
+
+.sort{
+	padding-top: 19px;
+}
+.sort .form-select{
+	appearance: none;
+    text-shadow: none;
+    box-shadow: none;
+    color: #727272;
+	border:2px solid #e5e5e5;
+	display: block;
+    font-family: 'Open Sans';
+    line-height: 24px;
+	border-radius: 30px;
+    background-color: transparent;
+	transition: all 0.3s ease-in-out;
+}
+
+.sort .form-select.active{
+	appearance: none;
+    text-shadow: none;
+    box-shadow: none;
+    color: #727272;
+}
+.sort .form-select:focus{
+	appearance: none;
+    text-shadow: none;
+    box-shadow: none;
+    color: #727272;
+}

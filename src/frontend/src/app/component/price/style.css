@@ -1,0 +1,27 @@
+.MuiSlider-root{
+color: #f28b00 !important;
+padding-bottom: 33px !important;
+padding-top: 33px !important;
+}
+.MuiOutlinedInput-root.Mui-error .MuiOutlinedInput-notchedOutline {
+    border-color: #f28b00 !important;
+    
+}
+.MuiOutlinedInput-input {
+    color: #4e2f05 !important;
+}
+.MuiFormLabel-root.Mui-error {
+    margin-left: -5px !important;
+    color: gray !important;
+    padding-top: 8px !important;
+}
+.pricing h3{
+    border-bottom: 1px solid #e5e5e5 !important;
+    padding-bottom: 16px !important; 
+    font-family: 'Nunito' !important;
+    font-weight: 500 !important;
+}
+.MuiTypography-body1 {
+    font-size: 13px !important;
+    padding-top: 12px !important;
+}

@@ -11,6 +11,6 @@ export function getCartItems() {
 
 export function removeFromCart(product) {}
 export function clearCart() {}
-// const AddToCart = (prd) => {
+// const AddToCart = (prd) => {ll
 //     localStorage.setItem('cart',JSON.stringify[prd])
 //   };

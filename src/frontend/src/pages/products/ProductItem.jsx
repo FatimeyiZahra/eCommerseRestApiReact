@@ -15,10 +15,26 @@ const ProductItem = ({
   isNew,
 }) => {
   return (
-    <>
-      <div className="item">
-        <div className="imagebox style4">
-          <div className="box-image">
+    <div key={id} className="col-lg-4 col-sm-6">
+      <div className="product-box">
+        <div className="imagebox">
+          {discount != null ? (
+            <span className="item-sale">-{discount.percentage}%</span>
+          ) : (
+            <span></span>
+          )}
+          {isNew === true ? (
+            <span className="item-new">NEW</span>
+          ) : (
+            <span></span>
+          )}
+          {isComing === true ? (
+            <span className="item-soon">SOON</span>
+          ) : (
+            <span></span>
+          )}
+
+          <div className="box-image owl-carousel-1">
             <a href="!#" title="">
               <img src={photos[0]} alt="" />
             </a>
@@ -38,45 +54,47 @@ const ProductItem = ({
               {discount != null ? (
                 <>
                   <span className="sale">
-                    {price - (price * discount.percentage) / 100}
+                    {" "}
+                    ${price - (price * discount.percentage) / 100}
                   </span>
-                  <span className="regular">{price}</span>
+                  <span className="regular">${price}</span>
                 </>
               ) : (
-                <span className="current">{price}</span>
+                <span className="sale">${price}</span>
               )}
             </div>
-            {discount != null ? (
-              <span className="item-sale">-{discount.percentage}%</span>
-            ) : (
-              <span></span>
-            )}
-            {isNew === true ? (
-              <span className="item-new">NEW</span>
-            ) : (
-              <span></span>
-            )}
-            {isComing === true ? (
-              <span className="item-soon">SOON</span>
-            ) : (
-              <span></span>
-            )}
-            <button
-              className="add-to-cart"
-              onClick={() =>
-                addToCart({
-                  id,
-                  name,
-                  price,
-                })
-              }
-            >
-              add to cart
-            </button>
+          </div>
+          <div className="box-bottom">
+            <div className="btn-add-cart">
+              <a
+                href="!"
+                title=""
+                onClick={() =>
+                  addToCart({
+                    id,
+                    name,
+                    price,
+                  })
+                }
+              >
+                <img src="images/icons/add-cart.png" alt="" />
+                Add to Cart
+              </a>
+            </div>
+            <div className="compare-wishlist">
+              <a href="!#" className="compare" title="">
+                <img src="images/icons/compare.png" alt="" />
+                Compare
+              </a>
+              <a href="!#" className="wishlist" title="">
+                <img src="images/icons/wishlist.png" alt="" />
+                Wishlist
+              </a>
+            </div>
           </div>
         </div>
       </div>
-    </>
+    </div>
   );
 };
 
