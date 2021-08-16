@@ -38,12 +38,12 @@ const ProductItemCarousel = ({
               {discount != null ? (
                 <>
                   <span className="sale">
-                    {price - (price * discount.percentage) / 100}
+                    ${price - (price * discount.percentage) / 100}
                   </span>
-                  <span className="regular">{price}</span>
+                  <span className="regular">${price}</span>
                 </>
               ) : (
-                <span className="current">{price}</span>
+                <span className="sale">${price}</span>
               )}
             </div>
             {discount != null ? (
@@ -61,18 +61,24 @@ const ProductItemCarousel = ({
             ) : (
               <span></span>
             )}
-            <button
-              className="add-to-cart"
-              onClick={() =>
-                addToCart({
-                  id,
-                  name,
-                  price,
-                })
-              }
-            >
-              add to cart
-            </button>
+            <div className="box-bottom2">
+              <div className="btn-add-cart">
+                <a
+                  href="!"
+                  title=""
+                  onClick={() =>
+                    addToCart({
+                      id,
+                      name,
+                      price,
+                    })
+                  }
+                >
+                  <img src="images/icons/add-cart.png" alt="" />
+                  Add to Cart
+                </a>
+              </div>
+            </div>
           </div>
         </div>
       </div>
@@ -81,4 +87,3 @@ const ProductItemCarousel = ({
 };
 
 export default ProductItemCarousel;
-

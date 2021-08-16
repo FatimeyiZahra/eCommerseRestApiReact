@@ -2,16 +2,15 @@ import React, { useState, useEffect } from "react";
 import axios from "axios";
 import Seo from "../../app/seo/Seo";
 import ProductsPage from "../products/ProductsPage";
-import "../products/style.css"
+import "../products/style.css";
 import OwlCarousel from "react-owl-carousel";
 import ProductItemCarousel from "../products/ProductItemCarousel";
 const options = {
   margin: 30,
   responsiveClass: true,
-  nav: true,
-  autoplay: false,
-  navText: ["Prev", "Next"],
-  smartSpeed: 1000,
+  autoplay: true,
+  loop: true,
+  smartSpeed: 2000,
   responsive: {
     0: {
       items: 1,
@@ -44,12 +43,14 @@ const HomePage = () => {
   return (
     //it's react.fragment. it lok like div. the difference between them is - div has margin bla bla and i ll use <div>inside div inside div and i dont it cause of that i used react.fragment like <></> instead of i can write <react.fragmen> it s the same thing with <></>
     <>
-     <Seo title='Welcome to the machine' />
-     <ProductsPage/>
-     <>
+      <Seo title="Welcome to the machine" />
+      <ProductsPage />
+      <section id="free">
         <div className="container">
           <div className="row">
-            <h1>Free product</h1>
+            <div class="flat-row-title">
+              <h3>Free Products</h3>
+            </div>
             <div className="col-lg-12">
               <OwlCarousel className="slider-items owl-carousel" {...options}>
                 {freeProducts &&
@@ -60,22 +61,25 @@ const HomePage = () => {
             </div>
           </div>
         </div>
-      </>
-      <>
+      </section>
+      <section id="soon">
         <div className="container">
           <div className="row">
-            <h1>cooming soon products</h1>
+            <div class="flat-row-title">
+              <h3>Coming Soon</h3>
+            </div>
             <div className="col-12">
               <OwlCarousel className="slider-items owl-carousel" {...options}>
                 {cooming &&
                   cooming.map((prd) => (
-                  <ProductItemCarousel key={prd.id} {...prd} />
+                    <ProductItemCarousel key={prd.id} {...prd} />
                   ))}
               </OwlCarousel>
             </div>
           </div>
         </div>
-      </>
+
+      </section>
     </>
   );
 };

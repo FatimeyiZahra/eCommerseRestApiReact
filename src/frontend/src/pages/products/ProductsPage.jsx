@@ -19,16 +19,16 @@ const ProductsPage = () => {
   }, []);
 
   return (
-    <>
+    <section id="all">
       <Seo title="Products" />
       <div className="container">
         <div className="row">
           <div className="col-lg-3">
             <Category />
-            <Price/>
+            <Price />
           </div>
           <div className="col-lg-9">
-            <div className="row justify-content-end">
+            {/* <div className="row justify-content-end">
               <div className="col-lg-3">
                 <div className="sort">
                   <select className="form-select">
@@ -38,13 +38,25 @@ const ProductsPage = () => {
                   </select>
                 </div>
               </div>
-            </div>
-
+            </div> */}
             <section className="flat-row flat-imagebox">
               <div className="container">
                 <div className="box-product">
                   <div className="row">
-                    <h1>all products</h1>
+                    <div class="row flat-row-title justify-content-between">
+                      <div className="col-lg-8">
+                        <h3>All Products</h3>
+                      </div>
+                      <div className="col-lg-3">
+                        <div className="sort">
+                          <select className="form-select">
+                            <option selected>sort by:</option>
+                            <option value="1">high-low</option>
+                            <option value="2">low-high</option>
+                          </select>
+                        </div>
+                      </div>
+                    </div>
                     {products &&
                       products.map((prd) => (
                         <ProductItem key={prd.id} {...prd} />
@@ -53,13 +65,11 @@ const ProductsPage = () => {
                 </div>
               </div>
             </section>
-         <Pagination/>
+            <Pagination />
           </div>
         </div>
       </div>
-
-      <></>
-    </>
+    </section>
   );
 };
 
