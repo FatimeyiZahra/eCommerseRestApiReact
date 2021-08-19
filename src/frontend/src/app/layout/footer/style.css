@@ -1,0 +1,179 @@
+#footer {
+  padding-top: 120px;
+  position: relative;
+}
+
+#footer img {
+  margin-bottom: 30px;
+}
+
+#footer ul li {
+  list-style: none;
+  margin-bottom: 18px;
+}
+
+#footer .links ul li a {
+  font-family: "Nunito", sans-serif;
+  text-decoration: none;
+  display: inline-block;
+  color: #666666;
+  font-weight: 600;
+}
+#footer .links ul {
+  padding-left: 0;
+}
+
+#footer .links ul li a:hover {
+  font-family: "Nunito", sans-serif;
+  text-decoration: none;
+  color: #437eeb;
+}
+
+#footer h4 {
+  font-family: "Nunito", sans-serif;
+  display: inline-block;
+  position: relative;
+  margin-bottom: 30px;
+  font-weight: 700;
+  z-index: 1;
+}
+
+#footer .social-icons {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  margin-top: 25px;
+}
+#footer .social-icons ul {
+  padding-left: 0 !important;
+}
+#footer .social-icons {
+  padding-left: 0 !important;
+}
+
+#footer .social-icons li {
+  font-family: "Nunito", sans-serif;
+  margin-right: 7px;
+}
+
+#footer .social-icons li a i {
+  display: inline-block;
+  width: 37px;
+  height: 37px;
+  line-height: 40px;
+  text-align: center;
+  color: #ffffff;
+  border-radius: 10px;
+  font-size: 14px;
+}
+
+#footer .social-icons .fa-facebook-f {
+  background: linear-gradient(120deg, #3b5998, #0078d7);
+}
+
+#footer .social-icons .fa-twitter {
+  background-color: #1da1f2;
+}
+
+#footer .social-icons .fa-youtube {
+  background-color: #ff0000;
+}
+
+#footer .social-icons .fa-instagram {
+  font-size: 29px;
+  line-height: 38px;
+  background: radial-gradient(
+      circle farthest-corner at 35% 90%,
+      #fec564,
+      transparent 50%
+    ),
+    radial-gradient(circle farthest-corner at 0 140%, #fec564, transparent 50%),
+    radial-gradient(ellipse farthest-corner at 0 -25%, #5258cf, transparent 50%),
+    radial-gradient(
+      ellipse farthest-corner at 20% -50%,
+      #5258cf,
+      transparent 50%
+    ),
+    radial-gradient(ellipse farthest-corner at 100% 0, #893dc2, transparent 50%),
+    radial-gradient(
+      ellipse farthest-corner at 60% -20%,
+      #893dc2,
+      transparent 50%
+    ),
+    radial-gradient(ellipse farthest-corner at 100% 100%, #d9317a, transparent),
+    -webkit-gradient(linear, left top, left bottom, from(#6559ca), color-stop(30%, #bc318f), color-stop(50%, #e33f5f), color-stop(70%, #f77638), to(#fec66d));
+  background: radial-gradient(
+      circle farthest-corner at 35% 90%,
+      #fec564,
+      transparent 50%
+    ),
+    radial-gradient(circle farthest-corner at 0 140%, #fec564, transparent 50%),
+    radial-gradient(ellipse farthest-corner at 0 -25%, #5258cf, transparent 50%),
+    radial-gradient(
+      ellipse farthest-corner at 20% -50%,
+      #5258cf,
+      transparent 50%
+    ),
+    radial-gradient(ellipse farthest-corner at 100% 0, #893dc2, transparent 50%),
+    radial-gradient(
+      ellipse farthest-corner at 60% -20%,
+      #893dc2,
+      transparent 50%
+    ),
+    radial-gradient(ellipse farthest-corner at 100% 100%, #d9317a, transparent),
+    linear-gradient(
+      #6559ca,
+      #bc318f 30%,
+      #e33f5f 50%,
+      #f77638 70%,
+      #fec66d 100%
+    );
+}
+
+#footer .validThemes a {
+  font-family: "Nunito", sans-serif;
+  color: #437eeb;
+  font-weight: 700;
+  text-decoration: underline;
+}
+.contact-info ul {
+  padding-left: 0 !important;
+}
+.contact-info ul li {
+  font-family: "Nunito", sans-serif;
+  font-size: 15px;
+  font-weight: 400;
+  line-height: 30px;
+  color: #666666;
+}
+p {
+  font-family: "Nunito", sans-serif;
+  color: #666666;
+  line-height: 28px;
+  margin: 0 0 15px;
+  text-transform: none;
+  font-weight: 400;
+}
+#footer .footerEnd-text ul {
+  padding-left: 0 !important;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: end;
+  -ms-flex-pack: end;
+  justify-content: end;
+}
+#footer .footerEnd-text {
+  display: flex;
+  justify-content: flex-end;
+}
+
+#footer .footerEnd-text ul li {
+  font-family: "Nunito", sans-serif;
+  list-style: none;
+  margin-left: 15px;
+}
+#footer .footerEnd-text ul li a {
+  font-family: "Nunito", sans-serif;
+  text-decoration: none;
+}

@@ -1,7 +1,9 @@
-import React from "react";
-import { addToCart } from "../../modules/cart";
+import React, { useContext, useState } from "react"; 
 import "owl.carousel/dist/assets/owl.carousel.css";
 import "owl.carousel/dist/assets/owl.theme.default.css";
+import { Link,useParams } from "react-router-dom";
+import ContextCart from "../../app/cart/CartContext";
+import alertify from "alertifyjs";
 
 const ProductItem = ({
   id,
@@ -13,8 +15,13 @@ const ProductItem = ({
   percentage,
   isComing,
   isNew,
+  AddToCart, 
 }) => {
+  // const  AddToCart  = useContext(ContextCart);
+  
+  
   return (
+    
     <div key={id} className="col-lg-4 col-sm-6">
       <div className="product-box">
         <div className="imagebox">
@@ -33,12 +40,13 @@ const ProductItem = ({
           ) : (
             <span></span>
           )}
-
-          <div className="box-image owl-carousel-1">
-            <a href="!#" title="">
-              <img src={photos[0]} alt="" />
-            </a>
-          </div>
+          <Link to={'/products/${id}'}>
+            <div className="box-image owl-carousel-1">
+              <a href="!#" title="">
+                <img src={photos[0]} alt="" />
+              </a>
+            </div>
+          </Link>
           <div className="box-content">
             <div className="cat-name">
               <a href="!#" title="">
@@ -66,11 +74,9 @@ const ProductItem = ({
           </div>
           <div className="box-bottom">
             <div className="btn-add-cart">
-              <a
-                href="!"
-                title=""
+              <span
                 onClick={() =>
-                  addToCart({
+                  AddToCart ({
                     id,
                     name,
                     price,
@@ -79,7 +85,7 @@ const ProductItem = ({
               >
                 <img src="images/icons/add-cart.png" alt="" />
                 Add to Cart
-              </a>
+              </span>
             </div>
             <div className="compare-wishlist">
               <a href="!#" className="compare" title="">

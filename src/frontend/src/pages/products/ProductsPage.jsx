@@ -12,11 +12,30 @@ import Pagination from "../../app/component/pagination/Pagination";
 
 const ProductsPage = () => {
   const [products, setProduct] = useState([]);
+  const [cartValue, setCartValue] = useState(false);
+  const [showCount, setShowCount] = useState(0);
+  const [collections, setCollections] = useState();
+  const [initialSlicer, setInitialSlicer] = useState(0)
+  const [slicer, setSlicer] = useState(9);
+  const [page, setPage] = useState(1);
+
+  let iSlicer = 0;
+  let _slicer = 5;
   useEffect(() => {
     axios
       .get("https://localhost:44368/v1/homepage/all-products")
-      .then((res) => setProduct(res.data));
+      .then(res => {
+        setProduct(res.data)
+        setShowCount(Math.ceil(res.data.length / slicer))
+    });
   }, []);
+  const handleChange = (event, value) => {
+    setPage(value);
+
+    setInitialSlicer(_slicer * value - _slicer)
+    setSlicer(_slicer * value)
+
+};
 
   return (
     <section id="all">
@@ -43,14 +62,14 @@ const ProductsPage = () => {
               <div className="container">
                 <div className="box-product">
                   <div className="row">
-                    <div class="row flat-row-title justify-content-between">
+                    <div className="row flat-row-title justify-content-between">
                       <div className="col-lg-8">
                         <h3>All Products</h3>
                       </div>
                       <div className="col-lg-3">
                         <div className="sort">
-                          <select className="form-select">
-                            <option selected>sort by:</option>
+                          <select defaultValue={'DEFAULT'} className="form-select">
+                            <option value="DEFAULT" disabled>sort by:</option>
                             <option value="1">high-low</option>
                             <option value="2">low-high</option>
                           </select>
@@ -65,7 +84,7 @@ const ProductsPage = () => {
                 </div>
               </div>
             </section>
-            <Pagination />
+            <Pagination count={showCount} page={page} onChange={handleChange} />
           </div>
         </div>
       </div>

@@ -107,7 +107,7 @@ namespace Api.Controllers.V1
         }
 
         //get product by id
-        [Route("product/{id}")]
+        [Route("all-products/{id}")]
         [HttpGet]
         public async Task<IActionResult> GetProductById(int id)
         {

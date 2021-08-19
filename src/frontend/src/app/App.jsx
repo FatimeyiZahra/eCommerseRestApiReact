@@ -8,6 +8,7 @@ import CheckOutPage from "../pages/checkOut/CheckOutPage";
 import NoMatch from "../pages/404/NoMatch";
 import { BrowserRouter, Switch, Route } from "react-router-dom";
 import ComingSoon from "./section/cooming/ComingSoon";
+import ProductDetails from "../pages/products/ProductDetails"
 
 const App = () => {
   return (
@@ -22,12 +23,18 @@ const App = () => {
                   <HomePage />
                 </Route>
 
-                <Route path="/products">
+                <Route exact path="/products">
                   <ProductsPage />
                 </Route>
+
+                <Route path="/products/:id">
+                  <ProductDetails />
+                </Route>
+
                 <Route path="/coming-soon">
                   <ComingSoon />
                 </Route>
+
                 <Route path="/cart">
                   <CartPage />
                 </Route>
@@ -39,6 +46,7 @@ const App = () => {
                 <Route path="*">
                   <NoMatch />
                 </Route>
+
               </Switch>
         </Layout>
       </BrowserRouter>

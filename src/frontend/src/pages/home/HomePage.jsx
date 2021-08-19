@@ -48,7 +48,7 @@ const HomePage = () => {
       <section id="free">
         <div className="container">
           <div className="row">
-            <div class="flat-row-title">
+            <div className="flat-row-title">
               <h3>Free Products</h3>
             </div>
             <div className="col-lg-12">
@@ -65,7 +65,7 @@ const HomePage = () => {
       <section id="soon">
         <div className="container">
           <div className="row">
-            <div class="flat-row-title">
+            <div className="flat-row-title">
               <h3>Coming Soon</h3>
             </div>
             <div className="col-12">

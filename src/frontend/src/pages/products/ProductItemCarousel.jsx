@@ -1,7 +1,7 @@
 import React from "react";
-import { addToCart } from "../../modules/cart";
 import "owl.carousel/dist/assets/owl.carousel.css";
 import "owl.carousel/dist/assets/owl.theme.default.css";
+import addtocart from "../../app/cart/CartContext"
 
 const ProductItemCarousel = ({
   id,
@@ -67,7 +67,7 @@ const ProductItemCarousel = ({
                   href="!"
                   title=""
                   onClick={() =>
-                    addToCart({
+                    addtocart({
                       id,
                       name,
                       price,

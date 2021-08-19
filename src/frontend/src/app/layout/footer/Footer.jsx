@@ -1,14 +1,124 @@
 import React from "react";
+import "./style.css"
 
 const Footer = () => {
   return (
     <footer>
-      <div className="footer">
-        <div className="container">
-           Dev &copy; 2021 - first react app with right structure
+    <section id="footer">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-4">
+                    <div class="image">
+                        <img src="http://127.0.0.1:5501/creativelayers.net/themes/techno-html/images/logos/logo.png" alt="" srcset=""/>
+                    </div>
+                    <div class="footer-text">
+                        <p>Required honoured trifling eat pleasure man relation. Assurance yet bed was improving
+                            furniture man. Distrusts delighted</p>
+                    </div>
+                </div>
+                <div class="col-lg-2">
+                    <div class="links">
+                        <h4>Usefull Links</h4>
+                        <ul>
+                            <li>
+                                <a href="!#">Classic Business</a>
+                            </li>
+                            <li>
+                                <a href="!#">Blog</a>
+                            </li>
+                            <li>
+                                <a href="!#">Project</a>
+                            </li>
+                            <li>
+                                <a href="!#">About Us</a>
+                            </li>
+                            <li>
+                                <a href="!#">Contact</a>
+                            </li>
+                        </ul>
+                    </div>
+
+                </div>
+                <div class="col-lg-2">
+                    <div class="links">
+                        <h4>Services</h4>
+                        <ul>
+                            <li>
+                                <a href="!#">Marketing & Sales</a>
+                            </li>
+                            <li>
+                                <a href="!#">Manufacturing</a>
+                            </li>
+                            <li>
+                                <a href="!#">Supply Chain</a>
+                            </li>
+                            <li>
+                                <a href="!#">Data Visualization</a>
+                            </li>
+                            <li>
+                                <a href="!#">Big Data</a>
+                            </li>
+                        </ul>
+                    </div>
+
+                </div>
+                <div class="col-lg-4">
+                    <h4>Contact Info</h4>
+                    <p>Possible offering at contempt mr distance stronger an. Attachment excellence announcing</p>
+                    <div class="contact-info">
+                        <ul>
+                            <li>
+                                <strong>Email: </strong> support@validtheme.com
+                            </li>
+                            <li>
+                                <strong>Contact: </strong> +44-20-7328-4499
+                            </li>
+                        </ul>
+                    </div>
+                    <ul class="social-icons">
+                        <li class="facebook">
+                            <a href="!#"><i class="fab fa-facebook-f"></i></a>
+                        </li>
+                        <li class="twitter">
+                            <a href="!#"><i class="fab fa-twitter"></i></a>
+                        </li>
+                        <li class="youtube">
+                            <a href="!#"><i class="fab fa-youtube"></i></a>
+                        </li>
+                        <li class="instagram">
+                            <a href="!#"><i class="fab fa-instagram"></i></a>
+                        </li>
+                    </ul>
+                </div>
+
+            </div>
+            <div class="row">
+                <div class="col-lg-6">
+                    <div class="validThemes">
+                        <p>&copy; Copyright 2019. All Rights Reserved by <a href="!#">validthemes</a></p>
+                    </div>
+                </div>
+                <div class="col-lg-6">
+                    <div class="footerEnd-text ">
+                        <ul>
+                            <li>
+                                <a href="!#">Terms</a>
+                            </li>
+                            <li>
+                                <a href="!#">Privacy</a>
+                            </li>
+                            <li>
+                                <a href="!#">Support</a>
+                            </li>
+                        </ul>
+                    </div>
+
+                </div>
+            </div>
         </div>
-      </div>
-      </footer>
+    </section>
+</footer>
+
   );
 };
 

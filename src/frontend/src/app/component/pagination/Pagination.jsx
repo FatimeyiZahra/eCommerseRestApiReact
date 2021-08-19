@@ -1,45 +1,22 @@
-import React from "react";
-import "./style.css"
+import React from 'react';
+import { makeStyles } from '@material-ui/core';
+import { Pagination } from '@material-ui/lab';
 
-const Pagination = () => {
-  return (
-    <div className="blog-pagination">
-      <span>Showing 1–15 of 20 results</span>
-      <ul className="flat-pagination style1">
-        <li className="prev">
-          <a href="!#" title="">
-            <i className="fas fa-long-arrow-alt-left"></i>Prev Page
-          </a>
-        </li>
-        <li>
-          <a href="!#" className="waves-effect" title="">
-            01
-          </a>
-        </li>
-        <li>
-          <a href="!#" className="waves-effect" title="">
-            02
-          </a>
-        </li>
-        <li className="active">
-          <a href="!#" className="waves-effect" title="">
-            03
-          </a>
-        </li>
-        <li>
-          <a href="!#" className="waves-effect" title="">
-            04
-          </a>
-        </li>
-        <li className="next">
-          <a href="!#" title="">
-            Next Page<i className="fas fa-long-arrow-alt-right"></i>
-          </a>
-        </li>
-      </ul>
-      <div className="clearfix"></div>
-    </div>
-  );
-};
+const useStyles = makeStyles((theme) => ({
+    root: {
+        '& > *': {
+            marginTop: theme.spacing(2),
+        },
+    },
+}));
 
-export default Pagination;
+export default function PaginationRounded({ count, page, onChange }) {
+    const classes = useStyles();
+
+
+    return (
+        <div className={classes.root}>
+            <Pagination count={count} page={page} onChange={onChange} color="primary" shape="rounded" />
+        </div>
+    );
+}
