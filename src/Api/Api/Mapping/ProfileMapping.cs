@@ -15,6 +15,8 @@ namespace Api.Mapping
         {
             CreateMap<Category, CategoryResource>();
 
+            CreateMap<Stock, StockResource>();
+
             CreateMap<Discount, DiscountResource>();
 
             CreateMap<Product, ProductResource>()
@@ -22,9 +24,13 @@ namespace Api.Mapping
                                              .MapFrom(src => src.Photos
                                              .Select(p => BaseUrl + p.Photo)
                                              .ToArray()))
+                                              .ForMember(d => d.Quantity, opt => opt.MapFrom(src => src.Stocks.FirstOrDefault().Quantity))
                                              .ForMember(d => d.Discount, opt => opt
                                              .MapFrom(src => src.Discounts
                                              .FirstOrDefault().Discount));
+                                             //.ForMember(q => q.Quantity, opt => opt
+                                             //   .MapFrom(src => src.Stocks
+                                             //   .FirstOrDefault().Quantity));
         }
     }
 }

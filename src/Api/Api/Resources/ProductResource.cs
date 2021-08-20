@@ -13,6 +13,7 @@ namespace Api.Resources
         public decimal Price { get; set; }
         public bool IsComing { get; set; }
         public bool IsNew { get; set; }
+        public double Quantity { get; set; }
         public DateTime AddedDate { get; set; }
         public DiscountResource Discount { get; set; }
         public string[] Photos { get; set; }

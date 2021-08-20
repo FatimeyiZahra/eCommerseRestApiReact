@@ -202,6 +202,8 @@ namespace Data.Repositories.Implementations
         public async Task<Product> GetProductById(int id)
         {
             return await _context.Products
+                                .Include(p => p.Category)   
+                                .Include(s=>s.Stocks)
                                 .Include(p => p.Photos)
                                 .Include(p => p.Discounts).ThenInclude(p => p.Discount)
                                 .IncludeFilter(p => p.Discounts.FirstOrDefault(d => d.Discount.Status && d.Discount.StartDate <= DateTime.Now && d.Discount.EndDate >= DateTime.Now))
