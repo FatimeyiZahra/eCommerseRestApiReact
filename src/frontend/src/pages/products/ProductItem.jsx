@@ -40,7 +40,7 @@ const ProductItem = ({
           ) : (
             <span></span>
           )}
-          <Link to={'/products/${id}'}>
+          <Link to={`/products/${id}`}>
             <div className="box-image owl-carousel-1">
               <a href="!#" title="">
                 <img src={photos[0]} alt="" />

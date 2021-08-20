@@ -5,8 +5,17 @@ import alertify from "alertifyjs";
 export const ContextCart = createContext();
 
 const CartContext = (props) => {
+  const [products, setProduct] = useState([]);
+
+  useEffect(() => {
+    axios
+      .get("https://localhost:44368/v1/homepage/all-products")
+      .then((res) => {
+        setProduct(res.data);
+      });
+  }, []);
   const [basket, setBasket] = useState([]);
-  
+
   const AddToCart = (prd) => {
     const newBasket = [...basket];
 
@@ -28,7 +37,7 @@ const CartContext = (props) => {
 
   return (
     <div>
-      <ContextCart.Provider value={{AddToCart,RemoveFromCart}}>
+      <ContextCart.Provider value={{ products,AddToCart, RemoveFromCart }}>
         {props.children}
       </ContextCart.Provider>
     </div>
@@ -36,8 +45,6 @@ const CartContext = (props) => {
 };
 
 export default CartContext;
-
-
 
 // <div className="blog-pagination">
 // <span>Showing 1–15 of 20 results</span>
