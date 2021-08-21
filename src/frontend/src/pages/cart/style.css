@@ -1,0 +1,242 @@
+#shop-cart {
+  padding: 50px 0;
+}
+.table-cart table {
+  width: 100%;
+}
+
+.table-cart thead {
+  border-bottom: 1px solid #e5e5e5;
+  margin-bottom: 5px;
+}
+
+.table-cart thead tr th {
+  padding: 8px 0 18px;
+  color: #484848;
+  font-size: 14px;
+}
+
+.table-cart tr td {
+  padding: 40px 0 27px;
+  vertical-align: middle;
+}
+
+.table-cart tr td:nth-child(1) {
+  width: 52%;
+}
+
+.table-cart tr td:nth-child(2) {
+  width: 26%;
+}
+
+.table-cart tr td:nth-child(3) {
+  width: 13.333%;
+}
+
+.table-cart tr td:nth-child(4) {
+  width: 8.667%;
+  text-align: right;
+}
+
+.table-cart tr td .img-product {
+  width: 72px;
+  float: left;
+  margin-left: 8px;
+  margin-right: 31px;
+  line-height: 63px;
+}
+
+.table-cart tr td .name-product {
+  float: left;
+}
+
+.table-cart tr td .name-product {
+  font-size: 15px;
+  color: #484848;
+  padding-top: 8px;
+  line-height: 24px;
+}
+
+.table-cart tr td .price {
+  text-align: right;
+  line-height: 64px;
+  margin-right: 40px;
+  color: #989898;
+  font-size: 16px;
+  font-family: "Nunito";
+}
+
+.table-cart tr td .quanlity {
+  position: relative;
+}
+
+.table-cart tr td .quanlity span.btn-down {
+  position: absolute;
+  z-index: 9;
+  top: 12px;
+  left: 22px;
+  padding: 10px 10px;
+  cursor: pointer;
+}
+
+.table-cart tr td .quanlity .btn-down:before {
+  content: "";
+  position: absolute;
+  width: 15px;
+  height: 1px;
+  background: #484848;
+  top: 11px;
+  left: 2px;
+  cursor: pointer;
+}
+
+.table-cart tr td .quanlity span.btn-up {
+  position: absolute;
+  z-index: 9;
+  top: 13px;
+  right: 56px;
+  padding: 10px 10px;
+  cursor: pointer;
+}
+
+.table-cart tr td .quanlity .btn-up:after {
+  content: "";
+  position: absolute;
+  width: 1px;
+  height: 15px;
+  background: #484848;
+  top: 3px;
+  right: 10px;
+  cursor: pointer;
+}
+
+.table-cart tr td .quanlity .btn-up:before {
+  content: "";
+  position: absolute;
+  width: 15px;
+  height: 1px;
+  background: #484848;
+  top: 9.5px;
+  right: 2.5px;
+}
+
+.table-cart tr td .quanlity input {
+  width: 160px;
+  text-align: center;
+  padding: 15px 30px;
+  height: 45px;
+  background-color: #fff;
+  box-shadow: 0px 2px 3px 0px rgba(234, 234, 234, 1);
+  border-color: transparent;
+  color: #484848;
+  position: relative;
+  display: block;
+  font-family: "Open Sans";
+  line-height: 24px;
+  border: 2px solid #e5e5e5;
+  border-radius: 30px;
+  background-color: transparent;
+  transition: all 0.3s ease-in-out;
+}
+
+.table-cart tr td .total {
+  color: #f28b00;
+  font-size: 20px;
+  font-family: "Nunito";
+}
+
+.table-cart tr td > span {
+  cursor: pointer;
+}
+
+
+/* Cart Totals */
+.cart-totals {
+	padding:35px 40px 46px 41px;
+	border-radius:8px;
+	background-color:#f5f5f5;
+}
+
+.cart-totals h3 {
+	font-size:18px;
+	font-family:'Open Sans';
+	font-weight:bold;
+	color:#484848;
+	margin-bottom:26px;
+}
+
+.cart-totals table {
+	width:100%;
+}
+
+.cart-totals table tr td:nth-child(1) {
+	font-size:15px;
+	color:#2d2d2d;
+	text-align:left;
+}
+
+.cart-totals table tr td:last-child {
+	text-align:right;
+}
+
+.cart-totals table tr td {
+	padding:11px 0 16px;
+}
+
+.cart-totals table tr td.btn-radio .radio-info {
+	margin-bottom:7px;
+}
+
+.cart-totals table tr td.subtotal {
+	color:#8c8c8c;
+	font-size:19px;
+	font-family:'Nunito';
+}
+
+.cart-totals table tr td.price-total {
+	font-size:24px;
+	font-weight:500;
+	font-family:'Nunito';
+	color:#f28b00;
+	padding:22px 0;
+}
+
+
+.cart-totals form .btn-cart-totals {
+	margin-top:32px;
+	padding:0 5px;
+}
+
+.cart-totals form .btn-cart-totals a {
+    text-decoration: none;
+	display:block;
+	color:#fff;
+	font-size:16px;
+	height:50px;
+	line-height:50px;
+	text-align:center;
+	border-radius:25px;
+}
+
+.cart-totals form .btn-cart-totals a.update {
+	background-color:#adadad;
+	margin-bottom:28px;
+	position: relative;
+	overflow: hidden;
+	z-index: 5;
+}
+
+.cart-totals form .btn-cart-totals a.update:before {
+	background-color:#2d2d2d !important;
+	margin-bottom:28px;
+	position: relative;
+	overflow: hidden;
+	z-index: 5;
+}
+
+.cart-totals form .btn-cart-totals a.checkout {
+	background-color:#f92400;
+	position: relative;
+	overflow: hidden;
+	z-index: 5;
+}

@@ -117,49 +117,7 @@ namespace Data.Repositories.Implementations
 
         }
 
-        //public async Task<IEnumerable<Product>> GetAllProductsBySort(string sort)
-        //{
-        //    if (!string.IsNullOrWhiteSpace(sort))
-        //    {
-        //        switch (sort)
-        //        {
-        //            case "priceAsc":
-        //                return await _context.Products.OrderBy(p => p.Price).Include(p => p.Category).Include(p => p.Stocks)
-        //                                     .Include(p => p.Photos)
-        //                                     .Where(p => p.Stocks.Any(s => s.Quantity > 0))
-        //                                     .Include(p => p.Discounts).ThenInclude(p => p.Discount)
-        //                                     .IncludeFilter(p => p.Discounts.FirstOrDefault(d => d.Discount.Status && d.Discount.StartDate <= DateTime.Now && d.Discount.EndDate >= DateTime.Now))
-        //                                    .ToListAsync();
-
-        //                //break;
-        //            case "priceDesc":
-        //                return await _context.Products.OrderByDescending(p => p.Price).Include(p => p.Category).Include(p => p.Stocks)
-        //                                     .Include(p => p.Photos)
-        //                                     .Where(p => p.Stocks.Any(s => s.Quantity > 0))
-        //                                     .Include(p => p.Discounts).ThenInclude(p => p.Discount)
-        //                                     .IncludeFilter(p => p.Discounts.FirstOrDefault(d => d.Discount.Status && d.Discount.StartDate <= DateTime.Now && d.Discount.EndDate >= DateTime.Now))
-        //                                    .ToListAsync();
-        //            //break;
-        //            default:
-        //                return await _context.Products.OrderBy(p => p.Name).Include(p => p.Category).Include(p => p.Stocks)
-        //                                     .Include(p => p.Photos)
-        //                                     .Where(p => p.Stocks.Any(s => s.Quantity > 0))
-        //                                     .Include(p => p.Discounts).ThenInclude(p => p.Discount)
-        //                                     .IncludeFilter(p => p.Discounts.FirstOrDefault(d => d.Discount.Status && d.Discount.StartDate <= DateTime.Now && d.Discount.EndDate >= DateTime.Now))
-        //                                    .ToListAsync();
-        //                //break;
-        //        }
-        //    }
-        //    return await _context.Products.Include(p => p.Category)
-
-        //                                     .Include(p => p.Stocks)
-        //                                     .Include(p => p.Photos)
-        //                                     .Where(p => p.Stocks.Any(s => s.Quantity > 0))
-        //                                     .Include(p => p.Discounts).ThenInclude(p => p.Discount)
-        //                                     .IncludeFilter(p => p.Discounts.FirstOrDefault(d => d.Discount.Status && d.Discount.StartDate <= DateTime.Now && d.Discount.EndDate >= DateTime.Now))
-        //                                     .ToListAsync();
-        //}
-
+      
         public async Task<IEnumerable<Product>> GetIsComingProduct()
         {
             return await _context.Products

@@ -5,15 +5,7 @@ import alertify from "alertifyjs";
 export const ContextCart = createContext();
 
 const CartContext = (props) => {
-  const [products, setProduct] = useState([]);
-
-  useEffect(() => {
-    axios
-      .get("https://localhost:44368/v1/homepage/all-products")
-      .then((res) => {
-        setProduct(res.data);
-      });
-  }, []);
+  
   const [basket, setBasket] = useState([]);
 
   const AddToCart = (prd) => {
@@ -37,7 +29,7 @@ const CartContext = (props) => {
 
   return (
     <div>
-      <ContextCart.Provider value={{ products,AddToCart, RemoveFromCart }}>
+      <ContextCart.Provider value={{AddToCart,basket}}>
         {props.children}
       </ContextCart.Provider>
     </div>

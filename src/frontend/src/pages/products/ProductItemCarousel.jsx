@@ -1,7 +1,8 @@
-import React from "react";
+import React, { useState, useEffect,useContext } from 'react'
 import "owl.carousel/dist/assets/owl.carousel.css";
 import "owl.carousel/dist/assets/owl.theme.default.css";
-import addtocart from "../../app/cart/CartContext"
+import addtocart, { ContextCart } from "../../app/cart/CartContext";
+import { Link } from "react-router-dom";
 
 const ProductItemCarousel = ({
   id,
@@ -14,14 +15,20 @@ const ProductItemCarousel = ({
   isComing,
   isNew,
 }) => {
+  const {basket} = useContext(ContextCart)
+    const  AddToCart  = useContext(ContextCart);
+  console.log(basket)
+
   return (
     <>
       <div className="item">
         <div className="imagebox style4">
           <div className="box-image">
-            <a href="!#" title="">
-              <img src={photos[0]} alt="" />
-            </a>
+            <Link to={`/products/${id}`}>
+              <a href="!#" title="">
+                <img src={photos[0]} alt="" />
+              </a>
+            </Link>
           </div>
           <div className="box-content">
             <div className="cat-name">
@@ -63,11 +70,11 @@ const ProductItemCarousel = ({
             )}
             <div className="box-bottom2">
               <div className="btn-add-cart">
-                <a
+                <span
                   href="!"
                   title=""
                   onClick={() =>
-                    addtocart({
+                    AddToCart({
                       id,
                       name,
                       price,
@@ -76,7 +83,7 @@ const ProductItemCarousel = ({
                 >
                   <img src="images/icons/add-cart.png" alt="" />
                   Add to Cart
-                </a>
+                </span>
               </div>
             </div>
           </div>

@@ -15,13 +15,12 @@ const ProductItem = ({
   percentage,
   isComing,
   isNew,
-  AddToCart, 
 }) => {
+  // const {basket} = useContext(ContextCart)
+  // console.log(basket)
   // const  AddToCart  = useContext(ContextCart);
   
-  
   return (
-    
     <div key={id} className="col-lg-4 col-sm-6">
       <div className="product-box">
         <div className="imagebox">
@@ -74,7 +73,7 @@ const ProductItem = ({
           </div>
           <div className="box-bottom">
             <div className="btn-add-cart">
-              <span
+              {/* <span
                 onClick={() =>
                   AddToCart ({
                     id,
@@ -85,7 +84,7 @@ const ProductItem = ({
               >
                 <img src="images/icons/add-cart.png" alt="" />
                 Add to Cart
-              </span>
+              </span> */}
             </div>
             <div className="compare-wishlist">
               <a href="!#" className="compare" title="">

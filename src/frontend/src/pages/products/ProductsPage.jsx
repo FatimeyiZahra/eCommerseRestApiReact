@@ -9,18 +9,17 @@ import Category from "../../app/section/category/Category";
 import ProductItem from "./ProductItem";
 import Price from "..//../app/component/price/Price";
 import Pagination from "../../app/component/pagination/Pagination";
+import Sort from "../../app/component/sort/Sort";
 
 const ProductsPage = () => {
   const [products, setProduct] = useState([]);
-  const [cartValue, setCartValue] = useState(false);
   const [showCount, setShowCount] = useState(0);
-  const [collections, setCollections] = useState();
   const [initialSlicer, setInitialSlicer] = useState(0)
-  const [slicer, setSlicer] = useState(9);
+  const [slicer, setSlicer] = useState(2);
   const [page, setPage] = useState(1);
 
   let iSlicer = 0;
-  let _slicer = 5;
+  let _slicer = 2;
   useEffect(() => {
     axios
       .get("https://localhost:44368/v1/homepage/all-products")
@@ -47,17 +46,6 @@ const ProductsPage = () => {
             <Price />
           </div>
           <div className="col-lg-9">
-            {/* <div className="row justify-content-end">
-              <div className="col-lg-3">
-                <div className="sort">
-                  <select className="form-select">
-                    <option selected>sort by:</option>
-                    <option value="1">high-low</option>
-                    <option value="2">low-high</option>
-                  </select>
-                </div>
-              </div>
-            </div> */}
             <section className="flat-row flat-imagebox">
               <div className="container">
                 <div className="box-product">
@@ -66,18 +54,10 @@ const ProductsPage = () => {
                       <div className="col-lg-8">
                         <h3>All Products</h3>
                       </div>
-                      <div className="col-lg-3">
-                        <div className="sort">
-                          <select defaultValue={'DEFAULT'} className="form-select">
-                            <option value="DEFAULT" disabled>sort by:</option>
-                            <option value="1">high-low</option>
-                            <option value="2">low-high</option>
-                          </select>
-                        </div>
-                      </div>
+                     <Sort/>
                     </div>
                     {products &&
-                      products.map((prd) => (
+                      products.slice(initialSlicer,slicer).map((prd) => (
                         <ProductItem key={prd.id} {...prd} />
                       ))}
                   </div>

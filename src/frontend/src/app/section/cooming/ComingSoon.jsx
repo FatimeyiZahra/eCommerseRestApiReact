@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from "react";
 import axios from "axios";
+import { Link } from "react-router-dom";
 import  "../../../pages/products/style.css";
 import { addToCart } from "../../../modules/cart";
 const ComingSoon = () => {
@@ -41,9 +42,11 @@ const ComingSoon = () => {
                           )}
 
                           <div className="box-image owl-carousel-1">
+                          <Link to={`/coming-soon/${prd.id}`}>
                             <a href="!#" title="">
                               <img src={prd.photos[0]} alt="" />
                             </a>
+                            </Link>
                           </div>
                           <div className="box-content">
                             <div className="cat-name">
@@ -75,7 +78,7 @@ const ComingSoon = () => {
                           </div>
                           <div className="box-bottom">
                             <div className="btn-add-cart">
-                              <a href="!"
+                              <span href="!"
                                 title=""
                                 onClick={() =>
                                   addToCart({
@@ -85,7 +88,7 @@ const ComingSoon = () => {
                               >
                                 <img src="images/icons/add-cart.png" alt="" />
                                 Add to Cart
-                              </a>
+                              </span>
                             </div>
                             <div className="compare-wishlist">
                               <a href="!#" className="compare" title="">
