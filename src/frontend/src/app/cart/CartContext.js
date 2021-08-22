@@ -8,7 +8,7 @@ const CartContext = (props) => {
   
   const [basket, setBasket] = useState([]);
 
-  const AddToCart = (prd) => {
+  const addToCart = (prd) => {
     const newBasket = [...basket];
 
     var addedProduct = newBasket.find((c) => c.product.id === prd.id);
@@ -18,7 +18,8 @@ const CartContext = (props) => {
     } else {
       newBasket.push({ product: prd, quantity: 1 });
     }
-    setBasket(basket);
+    setBasket(newBasket);
+    console.log(newBasket)
     alertify.success(prd.name + " added to cart!");
   };
   const RemoveFromCart = (bst) => {
@@ -29,7 +30,7 @@ const CartContext = (props) => {
 
   return (
     <div>
-      <ContextCart.Provider value={{AddToCart,basket}}>
+      <ContextCart.Provider value={{addToCart,basket}}>
         {props.children}
       </ContextCart.Provider>
     </div>

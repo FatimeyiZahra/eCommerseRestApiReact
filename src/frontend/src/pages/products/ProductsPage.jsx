@@ -27,7 +27,7 @@ const ProductsPage = () => {
         setProduct(res.data)
         setShowCount(Math.ceil(res.data.length / slicer))
     });
-  }, []);
+  });
   const handleChange = (event, value) => {
     setPage(value);
 

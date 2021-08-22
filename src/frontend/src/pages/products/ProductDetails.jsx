@@ -10,9 +10,9 @@ const ProductDetails = (props) => {
     axios
       .get(`https://localhost:44368/v1/homepage/all-products/${id}`)
       .then((res) => setProductDetails(res.data));
-  },[]);
+  });
   // console.log(productDetails)
-  const Up = (prd) => {};
+  // const Up = (prd) => {};
   return (
     <section id="product-detail">
       <div className="container">
