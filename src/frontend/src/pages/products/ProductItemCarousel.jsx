@@ -1,7 +1,7 @@
 import React, { useContext } from "react";
 import "owl.carousel/dist/assets/owl.carousel.css";
 import "owl.carousel/dist/assets/owl.theme.default.css";
-import ContextCart from "../../app/cart/CartContext";
+import {ContextCart} from "../../app/cart/CartContext";
 import { Link } from "react-router-dom";
 
 const ProductItemCarousel = ({
@@ -15,7 +15,7 @@ const ProductItemCarousel = ({
   isComing,
   isNew,
 }) => {
-  // const {addToCart} = useContext(ContextCart);
+  const {addToCart} = useContext(ContextCart);
 
   return (
     <>
@@ -69,13 +69,15 @@ const ProductItemCarousel = ({
             <div className="box-bottom2">
               <div className="btn-add-cart">
                 <span
-                  // onClick={() =>
-                  //   addToCart({
-                  //     id,
-                  //     name,
-                  //     price,
-                  //   })
-                  // }
+                  onClick={() =>
+                    addToCart({
+                      id,
+                      name,
+                      price,
+                      photos,
+                      discount,
+                    })
+                  }
                 >
                   <img src="images/icons/add-cart.png" alt="" />
                   Add to Cart

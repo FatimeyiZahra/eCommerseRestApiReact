@@ -15,11 +15,11 @@ const ProductsPage = () => {
   const [products, setProduct] = useState([]);
   const [showCount, setShowCount] = useState(0);
   const [initialSlicer, setInitialSlicer] = useState(0)
-  const [slicer, setSlicer] = useState(2);
+  const [slicer, setSlicer] = useState(5);
   const [page, setPage] = useState(1);
 
   let iSlicer = 0;
-  let _slicer = 2;
+  let _slicer = 5;
   useEffect(() => {
     axios
       .get("https://localhost:44368/v1/homepage/all-products")

@@ -689,6 +689,19 @@ ul.flat-unstyled {
 .box-cart .inner-box .dropdown-box > ul > li .info-product .price {
   color: #f28b00;
 }
+ .info-product .price span {
+  color: #f28b00;
+}
+.info-product .price span.regular{
+  color: gray;
+  padding-left: 5px;
+  font-size: 12px;
+}
+ /* .info-product .price span {
+  color: #f28b00;
+  font-size: 22px;
+  font-weight: 500;
+} */
 
 .inner-box .dropdown-box > ul > li span.delete {
   position: absolute;
@@ -785,4 +798,11 @@ ul.flat-unstyled {
 
 .inner-box .dropdown-box .btn-cart a.check-out:hover {
   border-color: transparent;
+}
+.emptyCart{
+  text-align: center;
+  color: #545151;
+  padding: 14px 0;
+  font-weight: 600;
+  font-family: "Nunito", sans-serif;
 }

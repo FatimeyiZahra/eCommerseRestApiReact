@@ -224,7 +224,7 @@
   /* #f28b00 */
 }
 
-.box-cart.style2 .btn-add-cart a {
+.box-cart.style2 .btn-add-cart span {
   text-decoration: none;
   display: inline-block;
   height: 55px;
@@ -236,13 +236,15 @@
   width: 220px;
   font-size: 16px;
   font-weight: 600;
+  transition: all 0.3s ease-in-out;
 }
 
-.box-cart.style2 .btn-add-cart a:hover {
+.box-cart.style2 .btn-add-cart span:hover {
+  transition: all 0.3s ease-in-out;
   background-color: #2d2d2d;
 }
 
-.box-cart.style2 .btn-add-cart a img {
+.box-cart.style2 .btn-add-cart span img {
   padding-right: 18px;
 }
 

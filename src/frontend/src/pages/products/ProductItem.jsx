@@ -1,9 +1,8 @@
-import React, { useContext, useState } from "react";
+import React, { useContext } from "react";
 import "owl.carousel/dist/assets/owl.carousel.css";
 import "owl.carousel/dist/assets/owl.theme.default.css";
 import { Link } from "react-router-dom";
-import ContextCart from "../../app/cart/CartContext";
-import alertify from "alertifyjs";
+import {ContextCart} from "../../app/cart/CartContext";
 
 const ProductItem = ({
   id,
@@ -16,26 +15,10 @@ const ProductItem = ({
   isComing,
   isNew,
 }) => {
-  // const cartItems = useContext(ContextCart)
+  // const basket = useContext(ContextCart)
   // console.log(ProductItem)
   const {addToCart} = useContext(ContextCart);
   // const [basket, setBasket] = useState([]);
-  
-
-  // const addToCart = (prd) => {
-  //   const newBasket = [...basket];
-
-  //   var addedProduct = newBasket.find((c) => c.product.id === prd.id);
-  //   if (addedProduct) {
-  //     Number((addedProduct.quantity += 1));
-  //     console.log(addedProduct.quantity);
-  //   } else {
-  //     newBasket.push({ product: prd, quantity: 1 });
-  //   }
-  //   setBasket(newBasket);
-  //   console.log(newBasket)
-  //   alertify.success(prd.name + " added to cart!");
-  // };
   
   return (
     <div key={id} className="col-lg-4 col-sm-6">
@@ -96,6 +79,8 @@ const ProductItem = ({
                     id,
                     name,
                     price,
+                    photos,
+                    discount,
                   })
                 }
               >

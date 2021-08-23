@@ -1,7 +1,14 @@
-import React from "react";
+import React, { useContext } from "react";
 import Seo from "../../app/seo/Seo";
 import "./style.css";
+import { ContextCart } from "../../app/cart/CartContext";
 const CartPage = () => {
+  const { basket } = useContext(ContextCart);
+  const { RemoveFromCart } = useContext(ContextCart);
+  const { changeQty } = useContext(ContextCart);
+  const {Up} = useContext(ContextCart);
+  const {Down} = useContext(ContextCart);
+  const {total} = useContext(ContextCart);
   return (
     <>
       <Seo title="cart" />
@@ -12,7 +19,7 @@ const CartPage = () => {
               <div className="title">
                 <h3>shopping cart</h3>
               </div>
-              <div class="table-cart">
+              <div className="table-cart">
                 <table>
                   <thead>
                     <tr>
@@ -23,113 +30,123 @@ const CartPage = () => {
                     </tr>
                   </thead>
                   <tbody>
-                    <tr>
-                      <td>
-                        <div class="img-product">
-                          <img src="images/product/other/12.jpg" alt="" />
-                        </div>
-                        <div class="name-product">
-                          Apple iPad Mini <br />
-                          G2356
-                        </div>
-                        <div class="price">$1,250.00</div>
-                        <div class="clearfix"></div>
-                      </td>
-                      <td>
-                        <div class="quanlity">
-                          <span class="btn-down"></span>
-                          <input
-                            name="number"
-                            value="5"
-                            min="1"
-                            max="100"
-                            placeholder="Quanlity"
-                          />
-                          <span class="btn-up"></span>
-                        </div>
-                      </td>
-                      <td>
-                        <div class="total">$6,250.00</div>
-                      </td>
-                      <td>
-                        <a href="!#" title="">
-                          <img src="images/icons/delete.png" alt="" />
-                        </a>
-                      </td>
-                    </tr>
-                    <tr>
-                      <td>
-                        <div class="img-product">
-                          <img src="images/product/other/11.jpg" alt="" />
-                        </div>
-                        <div class="name-product">
-                          Beats Pill+ Portable
-                          <br />
-                          Speaker
-                        </div>
-                        <div class="price">$1,250.00</div>
-                        <div class="clearfix"></div>
-                      </td>
-                      <td>
-                        <div class="quanlity">
-                          <span class="btn-down"></span>
-                          <input
-                            type="number"
-                            name="number"
-                            value="5"
-                            min="1"
-                            max="100"
-                            placeholder="Quanlity"
-                          />
-                          <span class="btn-up"></span>
-                        </div>
-                      </td>
-                      <td>
-                        <div class="total">$6,250.00</div>
-                      </td>
-                      <td>
-                        <span>
-                          <img src="images/icons/delete.png" alt="" />
-                        </span>
-                      </td>
-                    </tr>
+                    {basket &&
+                      basket.map((bst) => (
+                        <tr key={bst.id}>
+                          <td>
+                            <div className="img-product">
+                              <img src={bst.product.photos[0]} alt="" />
+                            </div>
+                            <div className="name-product">
+                              {bst.product.name}
+                            </div>
+                            <div className="price">
+                              {bst.product.discount != null ? (
+                                <>
+                                  <span>
+                                    {" "}
+                                    $
+                                    {bst.product.price -
+                                      (bst.product.price *
+                                        bst.product.discount.percentage) /
+                                        100}
+                                  </span>
+                                  <span className="regular">
+                                    ${bst.product.price}
+                                  </span>
+                                </>
+                              ) : (
+                                <span>${bst.product.price}</span>
+                              )}
+                            </div>
+                            <div className="clearfix"></div>
+                          </td>
+                          <td>
+                            <div className="quanlity">
+                              <span 
+                              onClick={() =>
+                                Down({bst})
+                              }
+                              className="btn-down"></span>
+                              <input
+                                type="text"
+                                value={bst.quantity}
+                                onChange={(e) =>
+                                  changeQty(bst.product, e.target.value)
+                                }
+                              />
+                              <span
+                               className="btn-up"
+                               onClick={() =>
+                                Up(bst)
+                              }
+                               ></span>
+                            </div>
+                          </td>
+                          <td>
+                            <div className="total">
+                              {/* ${bst.quantity * bst.product.price} */}
+                              {bst.product.discount != null ? (
+                                <>
+                                  <>
+                                    {" "}
+                                    $
+                                    {bst.quantity *
+                                      (bst.product.price -
+                                        (bst.product.price *
+                                          bst.product.discount.percentage) /
+                                          100)}
+                                  </>
+                                </>
+                              ) : (
+                                <>${bst.quantity * bst.product.price}</>
+                              )}
+                            </div>
+                          </td>
+                          <td>
+                            <i
+                              onClick={() => RemoveFromCart(bst.product)}
+                              className="far fa-trash-alt"
+                            ></i>
+                          </td>
+                        </tr>
+                      ))}
                   </tbody>
                 </table>
               </div>
             </div>
             <div className="col-lg-4">
-              <div class="cart-totals">
+              <div className="cart-totals">
                 <h3>Cart Totals</h3>
-                <form action="!#" method="get" accept-charset="utf-8">
+                <form action="!#" method="get" acceptCharset="utf-8">
                   <table>
                     <tbody>
                       <tr>
                         <td>Subtotal</td>
-                        <td class="subtotal">$2,589.00</td>
+                        <td className="subtotal">$2,589.00</td>
                       </tr>
                       <tr>
                         <td>Shipping</td>
-                        <td class="btn-radio">
-                          <div class="radio-info">
+                        <td className="btn-radio">
+                          <div className="radio-info">
                             <input
                               type="radio"
                               id="flat-rate"
-                              checked
                               name="radio-flat-rate"
                             />
-                            <label for="flat-rate">
+                            <label htmlFor="flat-rate">
                               Flat Rate: <span>$3.00</span>
                             </label>
                           </div>
-                          <div class="radio-info">
+                          <div className="radio-info">
                             <input
                               type="radio"
                               id="free-shipping"
                               name="radio-flat-rate"
                             />
-                            <label for="free-shipping">Free Shipping</label>
+                            <label htmlFor="free-shipping">Free Shipping</label>
                           </div>
-                          <div class="btn-shipping">
+                          <div className="btn-shipping">
                             <a href="!#" title="">
                               Calculate Shipping
                             </a>
@@ -138,12 +155,15 @@ const CartPage = () => {
                       </tr>
                       <tr>
                         <td>Total</td>
-                        <td class="price-total">$1,591.00</td>
+                        
+                        <td className="price-total">${total}</td>
+                        
+                        
                       </tr>
                     </tbody>
                   </table>
-                  <div class="btn-cart-totals">
-                    <a href="!#" class="update" title="">
+                  <div className="btn-cart-totals">
+                    <a href="!#" className="update" title="">
                       Check Out
                     </a>
                   </div>
