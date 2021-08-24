@@ -1,12 +1,21 @@
-import React, { createContext, useState } from "react";
+import React, { createContext, useState, useEffect } from "react";
 import alertify from "alertifyjs";
 
 export const ContextCart = createContext();
 
 const CartContext = (props) => {
   const [basket, setBasket] = useState([]);
+  const [total, setTotal] = useState(0);
   // const total = 0;
-
+  useEffect(() => {
+    const getTotal = () => {
+      const res = basket.reduce((prev, item) => {
+        return prev + item.product.price * item.quantity;
+      }, 0);
+      setTotal(res);
+    };
+    getTotal();
+  }, [basket]);
   const addToCart = (prd) => {
     const newBasket = [...basket];
 
@@ -21,60 +30,53 @@ const CartContext = (props) => {
     // console.log(newBasket);
     alertify.success(prd.name + " added to cart!");
   };
-  const Up = (prd) => {
-     setBasket((prev) => [
+  const Up = (bst) => {
+    setBasket((prev) => [
       ...prev.map((item) =>
-        item.id === prd.id ? { ...item, quantity: item.quantity + 1 } : item,
+        item.product.id === bst.product.id
+          ? { ...item, quantity: item.quantity + 1 }
+          : item
       ),
     ]);
   };
-  const Down = (prd) => {
-    // if (prd.quantity === 0) return RemoveFromCart(prd);
+  const Down = (bst) => {
+    if (bst.quantity === 0) return RemoveFromCart(bst);
     setBasket((prev) => [
-     ...prev.map((item) =>
-       item.id === prd.id ? { ...item, quantity: item.quantity - 1 } : item,
-     ),
-   ]);
- };
+      ...prev.map((item) =>
+        item.product.id === bst.product.id
+          ? { ...item, quantity: item.quantity - 1 }
+          : item
+      ),
+    ]);
+  };
   const RemoveFromCart = (bst) => {
     let newBasket = basket.filter((c) => c.product.id !== bst.id);
     setBasket(newBasket);
     alertify.error(bst.name + " removed from cart!");
   };
-  function changeQty(bst, qty) {
-    if (qty === 0) return RemoveFromCart(bst);
-    const newBasket = [...basket];
 
-    var addedProduct = newBasket.find((c) => c.product.id === bst.id);
-    if (addedProduct) {
-      newBasket.push({  product: bst, qty });
-    }
-    setBasket(newBasket);
-    // setBasket((prev) => [
-    //   ...prev.map((item) =>
-    //     item.id === bst.id ? { ...item, qty } : item,
-    //   ),
-    // ]);
+ 
+  function changeQty(bst, quantity) {
+    if (quantity === 0) return RemoveFromCart(bst);
+    setBasket((prev) => [
+      ...prev.map((item) =>
+        item.product.id === bst.product.id ? { ...item,  quantity } : item
+      ),
+    ]);
   }
-
-let total = 0;
- const TotalPrice=(prd)=>{
-   basket.map(bst=>(
-     total+=(bst.price*bst.quantity)
-   ))
-   setBasket(total)
-  // setBasket((prev) => [
-  //   ...prev.map((item) =>
-  //     total+= (item.price*item.quantity)
-     
-  //   ), console.log(total)
-  // ]);
- };
 
   return (
     <div>
       <ContextCart.Provider
-        value={{ addToCart, basket, RemoveFromCart,changeQty,Up,Down}}
+        value={{
+          addToCart,
+          basket,
+          RemoveFromCart,
+          changeQty,
+          Up,
+          Down,
+          total,
+        }}
       >
         {props.children}
       </ContextCart.Provider>
@@ -120,3 +122,21 @@ export default CartContext;
 // </ul>
 // <div className="clearfix"></div>
 // </div>
+
+ // const Down = (bst) => {
+  //   basket.forEach((item) => {
+  //     if (item.product.id === bst.product.id) {
+  //       item.quantity === 1 ? (item.quantity = 1) : (item.quantity -= 1);
+  //     }
+  //   });
+  //   setBasket([...basket]);
+  // };
+  // const Up = (bst) => {
+  //   // console.log(bst)
+  //   basket.forEach((item) => {
+  //     if (item.product.id === bst.product.id) {
+  //       item.quantity += 1;
+  //     }
+  //   });
+  //   setBasket([...basket]);
+  // };

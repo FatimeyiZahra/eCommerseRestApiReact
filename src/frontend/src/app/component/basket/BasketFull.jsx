@@ -24,9 +24,7 @@ const BasketFull = () => {
                       {bst.product.price -
                         (bst.product.price * bst.product.discount.percentage) /
                           100}
-                          <span className="regular">
-                                    ${bst.product.price}
-                                  </span>
+                      <span className="regular">${bst.product.price}</span>
                     </>
                   </>
                 ) : (

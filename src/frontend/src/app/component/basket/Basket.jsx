@@ -6,6 +6,7 @@ import BasketFull from "./BasketFull";
 
 const Basket = () => {
   const { basket } = useContext(ContextCart);
+  const { total } = useContext(ContextCart);
   return (
     <div className="col-md-3 col-lg-3 ">
       <div className="shop-box">
@@ -24,7 +25,7 @@ const Basket = () => {
             {basket.length > 0 ? <BasketFull /> : <BasketEmpty />}
             <div className="total">
               <span>Subtotal:</span>
-              <span className="price">$1,999.00</span>
+              <span className="price">${total}</span>
             </div>
             <div className="btn-cart">
               <Link to="/cart" className="view-cart">

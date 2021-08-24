@@ -75,7 +75,9 @@ const ProductDetails = (props) => {
                 <div className="quanlity-box">
                   <div className="quanlity">
                     <span className="btn-down"></span>
-                    <input name="number" placeholder="Quantity" />
+                    <input name="number" 
+                    value={productDetails.quantity}
+                    placeholder="Quantity" />
                     <span
                       onClick={() => Up(basket.quantity)}
                       className="btn-up"
@@ -92,10 +94,7 @@ const ProductDetails = (props) => {
                     <span
                       onClick={() =>
                         addToCart(
-                          productDetails.name,
-                          productDetails.id,
-                          productDetails.photos,
-
+                          productDetails
                         )
                       }
                     >

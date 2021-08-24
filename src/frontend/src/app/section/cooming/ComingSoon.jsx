@@ -1,10 +1,11 @@
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect,useContext } from "react";
 import axios from "axios";
 import { Link } from "react-router-dom";
 import  "../../../pages/products/style.css";
-import { addToCart } from "../../../modules/cart";
+import { ContextCart } from "../../cart/CartContext";
 const ComingSoon = () => {
   const [cooming, setCooming] = useState([]);
+  const { addToCart } = useContext(ContextCart);
 
   useEffect(() => {
     axios
@@ -81,9 +82,9 @@ const ComingSoon = () => {
                               <span href="!"
                                 title=""
                                 onClick={() =>
-                                  addToCart({
-                                    prd,
-                                  })
+                                  addToCart(
+                                    prd
+                                  )
                                 }
                               >
                                 <img src="images/icons/add-cart.png" alt="" />

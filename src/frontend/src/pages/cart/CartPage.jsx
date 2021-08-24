@@ -9,6 +9,9 @@ const CartPage = () => {
   const {Up} = useContext(ContextCart);
   const {Down} = useContext(ContextCart);
   const {total} = useContext(ContextCart);
+
+  if(basket.length === 0)
+  return <h2 style={{textAlign: "center", fontSize: "5rem"}}>Cart Empty</h2>
   return (
     <>
       <Seo title="cart" />
@@ -32,7 +35,7 @@ const CartPage = () => {
                   <tbody>
                     {basket &&
                       basket.map((bst) => (
-                        <tr key={bst.id}>
+                        <tr key={bst.product.id}>
                           <td>
                             <div className="img-product">
                               <img src={bst.product.photos[0]} alt="" />
@@ -65,14 +68,14 @@ const CartPage = () => {
                             <div className="quanlity">
                               <span 
                               onClick={() =>
-                                Down({bst})
+                                Down(bst)
                               }
                               className="btn-down"></span>
                               <input
-                                type="text"
+                                type="number"
                                 value={bst.quantity}
                                 onChange={(e) =>
-                                  changeQty(bst.product, e.target.value)
+                                  changeQty(bst, e.target.value)
                                 }
                               />
                               <span
@@ -178,3 +181,7 @@ const CartPage = () => {
 };
 
 export default CartPage;
+
+
+
+
