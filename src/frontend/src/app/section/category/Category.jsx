@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from "react";
 import axios from "axios";
 import "./style.css";
+import { Link } from "react-router-dom";
 const Category = () => {
   const [categories, setCategory] = useState([]);
 
@@ -15,9 +16,11 @@ const Category = () => {
       <ul className="list-group">
         {categories &&
           categories.map((cat) => (
+            <Link to={`/category/${cat.id}`}>
             <li key={cat.id} className="list-item">
              <span>{cat.name}</span> 
             </li>
+            </Link>
           ))}
       </ul>
     </div>

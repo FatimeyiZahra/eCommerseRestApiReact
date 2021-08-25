@@ -19,7 +19,7 @@ const Basket = () => {
               />
               <span>{basket.length}</span>
             </div>
-            <div className="price">$0.00</div>
+            <div className="price">${total}</div>
           </a>
           <div className="dropdown-box">
             {basket.length > 0 ? <BasketFull /> : <BasketEmpty />}

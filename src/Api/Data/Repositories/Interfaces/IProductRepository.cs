@@ -12,7 +12,7 @@ namespace Data.Repositories.Interfaces
         Task<IEnumerable<Product>> GetAllProducts(string sort, int? min, int? max);
         Task<IEnumerable<Product>> GetIsNewProduct();
         Task<IEnumerable<Product>> GetIsComingProduct();
-        Task<IEnumerable<Product>> GetProductsByCategoryId(int categoryId, int page);
+        Task<IEnumerable<Product>> GetProductsByCategoryId(int categoryId);
         //Task<IEnumerable<Product>> GetAllProductsBySort(string sort);
         Task<int> GetProductsCountByCategoryId(int categoryId);
         Task<Product> GetProductById(int id);

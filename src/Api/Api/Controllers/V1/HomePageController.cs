@@ -71,43 +71,24 @@ namespace Api.Controllers.V1
 
         }
 
-        //[Route("sort-products")]
-        //[HttpGet]
-        //public async Task<IActionResult> GetAllProducts([FromQuery] string sort)
-        //{
-        //    var products = await _unitOfWork.Product.GetAllProductsBySort(sort);
-        //    var productResources = _mapper.Map<IEnumerable<Product>, IEnumerable<ProductResource>>(products);
-        //    return Ok(productResources);
-
-        //}
-         //get products by category
-        [Route("products")]
+        [Route("all-products/{categoryId}")]
         [HttpGet]
-        public async Task<IActionResult> GetProductsByCategory([FromQuery] int categoryId,
-                                                             [FromQuery] int page = 1)
+        public async Task<IActionResult> GetProductsByCategory(int categoryId)
         {
             var category = await _unitOfWork.Category.GetByIdAsync(categoryId);
 
             if (category == null) return NotFound();
 
-            var totalProducts = await _unitOfWork.Product.GetProductsCountByCategoryId(categoryId);
+            //var totalProducts = await _unitOfWork.Product.GetProductsCountByCategoryId(categoryId);
 
-            var products = await _unitOfWork.Product.GetProductsByCategoryId(categoryId, page);
+            var products = await _unitOfWork.Product.GetProductsByCategoryId(categoryId);
 
             var productResources = _mapper.Map<IEnumerable<Product>, IEnumerable<ProductResource>>(products);
-            return Ok(new
-            {
-                products = productResources,
-                pagination = new
-                {
-                    current = page,
-                    totalPage = Convert.ToInt32(Math.Ceiling(totalProducts / 12.0))
-                }
-            });
+            return Ok(productResources);
         }
 
         //get product by id
-        [Route("all-products/{id}")]
+        [Route("products/{id}")]
         [HttpGet]
         public async Task<IActionResult> GetProductById(int id)
         {
@@ -129,19 +110,17 @@ namespace Api.Controllers.V1
 
             if (product == null) return NotFound();
 
-            var products = await _unitOfWork.Product.GetProductsByCategoryId(product.CategoryId, 1);
+            var products = await _unitOfWork.Product.GetProductsByCategoryId(product.CategoryId);
 
             var productList = products.ToList();
 
             productList.RemoveAll(p => p.Id == product.Id);
 
-            var productResources = _mapper.Map<IEnumerable<Product>, IEnumerable<ProductResource>>(productList.Take(3));
+            var productResources = _mapper.Map<IEnumerable<Product>, IEnumerable<ProductResource>>(productList.Take(5));
 
             return Ok(productResources);
 
         }
-
-
 
     }
 

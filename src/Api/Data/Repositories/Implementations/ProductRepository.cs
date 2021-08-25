@@ -169,7 +169,7 @@ namespace Data.Repositories.Implementations
                                 .Where(p => p.Stocks.Any(s => s.Quantity > 0))
                                 .FirstOrDefaultAsync();
         }
-        public async Task<IEnumerable<Product>> GetProductsByCategoryId(int categoryId, int page)
+        public async Task<IEnumerable<Product>> GetProductsByCategoryId(int categoryId)
         {
             return await _context.Products
                                                       .Include(p => p.Category)
@@ -180,8 +180,6 @@ namespace Data.Repositories.Implementations
                                                       .Include(p => p.Discounts).ThenInclude(p => p.Discount)
                                                       .IncludeFilter(p => p.Discounts.FirstOrDefault(d => d.Discount.Status && d.Discount.StartDate <= DateTime.Now && d.Discount.EndDate >= DateTime.Now))
                                                       .OrderByDescending(p => p.AddedDate)
-                                                      .Skip((page - 1) * 12)
-                                                      .Take(12)
                                                       .ToListAsync();
         }
 

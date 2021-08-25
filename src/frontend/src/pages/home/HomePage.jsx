@@ -15,16 +15,10 @@ const options = {
     0: {
       items: 1,
     },
-    400: {
-      items: 1,
-    },
     600: {
       items: 2,
     },
-    700: {
-      items: 3,
-    },
-    1000: {
+    1200: {
       items: 5,
     },
   },
@@ -44,7 +38,7 @@ const HomePage = () => {
     //it's react.fragment. it lok like div. the difference between them is - div has margin bla bla and i ll use <div>inside div inside div and i dont it cause of that i used react.fragment like <></> instead of i can write <react.fragmen> it s the same thing with <></>
     <>
       <Seo title="Welcome to the machine" />
-      <ProductsPage />
+      {/* <ProductsPage /> */}
       <section id="free">
         <div className="container">
           <div className="row">

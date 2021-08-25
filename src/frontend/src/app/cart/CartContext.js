@@ -6,11 +6,17 @@ export const ContextCart = createContext();
 const CartContext = (props) => {
   const [basket, setBasket] = useState([]);
   const [total, setTotal] = useState(0);
-  // const total = 0;
   useEffect(() => {
     const getTotal = () => {
       const res = basket.reduce((prev, item) => {
+        if(item.product.discount!=null){
+        return prev + (item.product.price -
+          (item.product.price * item.product.discount.percentage)/
+          100) * item.quantity;
+        }
+        else{
         return prev + item.product.price * item.quantity;
+        }
       }, 0);
       setTotal(res);
     };
