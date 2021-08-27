@@ -17,6 +17,7 @@ namespace Data
         private ProductPhotoRepository _productPhotoRepository;
         private ProductRepository _productRepository;
         private StockRepository _stockRepository;
+        private UserRepository _userRepository;
 
         public UnitOfWork(ApplicationDbContext context)
         {
@@ -35,6 +36,7 @@ namespace Data
         public IProductRepository Product => _productRepository ??= new ProductRepository(_context);
 
         public IStockRepository Stock => _stockRepository ??= new StockRepository(_context);
+        public IUserRepository User => _userRepository ??= new UserRepository(_context);
 
 
 

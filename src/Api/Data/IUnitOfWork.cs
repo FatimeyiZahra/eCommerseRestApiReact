@@ -14,6 +14,7 @@ namespace Data
         IProductPhotoRepository ProductPhoto { get; }
         IProductRepository Product { get; }
         IStockRepository Stock { get; }
+        IUserRepository User { get; }
         Task<int> CommitAsync();
     }
 

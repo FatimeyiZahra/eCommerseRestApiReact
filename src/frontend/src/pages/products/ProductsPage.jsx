@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from "react";
 import Seo from "../../app/seo/Seo";
+import { useParams } from "react-router-dom/cjs/react-router-dom.min";
 import axios from "axios";
 import "../products/style.css";
 import "./style.css";
@@ -17,17 +18,34 @@ const ProductsPage = () => {
   const [initialSlicer, setInitialSlicer] = useState(0)
   const [slicer, setSlicer] = useState(5);
   const [page, setPage] = useState(1);
+  const [catId, setCatId] = useState([]);
+  const [isChanging, setChanging] = useState(false)
 
   let iSlicer = 0;
   let _slicer = 5;
+  const { id } = useParams();
   useEffect(() => {
+    if(id){
     axios
-      .get("https://localhost:44368/v1/homepage/all-products")
+      .get(`https://localhost:44368/v1/homepage/all-products/${id}`)
       .then(res => {
         setProduct(res.data)
         setShowCount(Math.ceil(res.data.length / slicer))
+        
     });
-  });
+    }
+    else{
+      axios
+      .get(`https://localhost:44368/v1/homepage/all-products`) //?sort=priceAsc
+      .then(res => {
+        setProduct(res.data)
+        setShowCount(Math.ceil(res.data.length / slicer))
+      });
+    }
+   
+  },[id]);
+
+
   const handleChange = (event, value) => {
     setPage(value);
 
