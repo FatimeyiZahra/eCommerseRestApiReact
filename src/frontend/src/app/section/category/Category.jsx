@@ -16,7 +16,7 @@ const Category = () => {
       <ul className="list-group">
         {categories &&
           categories.map((cat) => (
-            <Link to={`/products/${cat.id}`}>
+            <Link to={`/all-products/${cat.id}`}>
             <li key={cat.id} className="list-item">
              <span>{cat.name}</span> 
             </li>

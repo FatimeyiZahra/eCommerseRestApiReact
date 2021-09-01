@@ -547,7 +547,7 @@ const Header = () => {
                   </li>
 
                   <li className="column-1">
-                    <Link to="/products">Store</Link>
+                    <Link to="/all-products">Store</Link>
                   </li>
 
                   <li className="column-1">
